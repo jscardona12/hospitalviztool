@@ -3,28 +3,29 @@ import '../css/Display.css';
 import Model from '../js/model';
 import Recommender from '../js/recommender';
 import Visualization from './Visualization';
+import { Upload, Icon, Button, Modal, Card } from 'antd';
 
 class Display extends Component {
   constructor(props) {
     super(props);
     this.recommender = new Recommender(this.props.schema.getCqlSchema());
+    this.loading = true;
   }
 
   render() {
-    if (this.props.fieldTypes.length === 0) {
-      return null;
+    if (this.props.fieldNames.length < 2) {
+      return alert("Please select the values to compare")
     }
 
     const model = new Model(
       this.props.data,
       this.props.schema,
-      this.props.fieldTypes,
-      this.props.fieldAggregates,
-      this.props.fieldBins
+      this.props.fieldNames,
+      this.props.attr,
     );
     const query = model.generate();
-    console.log("QUERY");
-    console.log(query);
+    //console.log("QUERY");
+    //console.log(query);
 
     const results = this.recommender.generate(query);
 

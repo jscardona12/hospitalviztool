@@ -34,12 +34,10 @@ class Schema {
     // }
   }
   setAttr(atts){
+      console.log("Setting Attr")
       for (const field of this.schema.fieldNames()) {
           const fieldSchema = this.schema.fieldSchema(field);
           const type = fieldSchema.vlType;
-          console.log(type);
-          console.log(field);
-
           atts[field].type = type;
           if (!this.types.has(type)) {
               this.types.set(type, []);

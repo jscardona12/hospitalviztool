@@ -39,7 +39,7 @@ class App extends Component {
             exportData:[],
             closed:false,
         }
-        this.schema = null;
+        this.schema = new Schema(this.state.data);
         console.log(this.schema);
         this.recommender = new Recommender();
     }
@@ -87,7 +87,7 @@ class App extends Component {
         }
         console.log(atts,"atts")
         this.getAttributesType(data,atts);
-        console.log(data);
+        //console.log(data);
         this.setState({
             loaded: true,
             attributes: atts,
@@ -200,6 +200,8 @@ class App extends Component {
                         attributes={this.state.attributes}
                         ids={this.state.ids}
                         id={this.state.id}
+                        schema = {this.schema}
+
                     />
 
                 </div>

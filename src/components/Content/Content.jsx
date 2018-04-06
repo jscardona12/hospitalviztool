@@ -42,8 +42,10 @@ class Content extends Component {
                     <div>
                         <Display
                             data = {this.props.data}
-                            attr = {this.props.attr}
-                            fieldNames = {["RE-HOSPITALIZACION" ,"NOMBRE_DIAGNOSTICO"]}
+                            attr = {this.props.attributes}
+                            fieldNames = {["RE-HOSPITALIZACION" ,"GENERO"]}
+                            schema = {this.props.schema}
+
                         />
                     </div>
                 }

@@ -14,19 +14,17 @@ class Model {
    *          N (Nominal)
    *          T (Time)
    */
-  constructor(data, schema, fieldTypes, fieldAggregates, fieldBins) {
+  constructor(data, schema, fields,atts) {
     this.data = data;
     this.schema = schema;
-    this.fieldTypes = fieldTypes;
-    this.fieldAggregates = fieldAggregates;
-    this.fieldBins = fieldBins;
+    this.fields = fields;
+    this.atts = atts;
   }
 
   /**
    * @return {Query} A compassQL query for this.
    */
   generate() {
-    this.schema.ready();
 
     const spec = {};
     spec['data'] = {
@@ -36,33 +34,32 @@ class Model {
     spec['mark'] = '?';
 
     const encodings = [];
-    for (let i = 0; i < this.fieldTypes.length; i++) {
+    for (let i = 0; i < this.fields.length; i++) {
       const encoding = {};
       encoding['channel'] = '?';
-      encoding['type'] = this.fieldTypes[i];
+      encoding['type'] = this.atts[this.fields[i]].type;
 
-      const field = this.schema.getNextField(this.fieldTypes[i]);
-      if (field == null) {
-        return null;
-      }
-      encoding['field'] = field;
+      encoding['field'] = this.fields[i];
 
-      if (this.fieldBins[i]) {
-        encoding['bin'] = this.fieldBins[i];
+      if ( this.atts[this.fields[i]].type === 'quantitative' ||  this.atts[this.fields[i]].type === 'temporal' ) {
+        encoding['bin'] = '?';
       }
-      if (this.fieldAggregates[i]) {
-        encoding['aggregate'] = this.fieldAggregates[i];
+      if (this.atts[this.fields[i]].type === 'quantitative') {
+        encoding['aggregate'] = '?';
       }
 
       encodings.push(encoding);
     }
-    this.schema.close();
 
     spec['encodings'] = encodings;
 
     const query = {};
-
     query['spec'] = spec;
+    //query['groupBy']= ["field", "aggregate", "bin", "timeUnit", "stack"];
+     // query['chooseBy']= "effectiveness";
+      //query["config"]= {
+      //    "autoAddCount": true
+      //};
     query['orderBy'] = 'effectiveness';
 
     return query;
