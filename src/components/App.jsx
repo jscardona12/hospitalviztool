@@ -5,6 +5,25 @@ import { Icon } from 'antd';
 //import Menu from './menu/Menu.jsx';
 import Content from './Content/Content.jsx';
 import * as d3 from "d3";
+import Display from './Content/Display';
+import Schema from './js/schema';
+import Recommender from './js/recommender';
+
+
+const DEFAULT_DIMENSION_CONFIG = {
+    fieldType: null,
+    fieldTransformation: null,
+    fieldTypeLocked: false,
+    fieldTransformationLocked: false,
+};
+const FIELD_TYPES = ['quantitative', 'temporal', 'ordinal', 'nominal'];
+const FIELD_TRANSFORMATIONS = {
+    'quantitative': ['none', 'bin', 'mean', 'sum'],
+    'temporal': ['none', 'bin'],
+    'ordinal': ['none'],
+    'nominal': ['none']
+};
+
 
 class App extends Component {
     constructor(props){
@@ -20,58 +39,24 @@ class App extends Component {
             exportData:[],
             closed:false,
         }
+        this.schema = null;
+        console.log(this.schema);
+        this.recommender = new Recommender();
     }
-    /*
-      Function that iterates over the data in order to get the type of each attribute
-      @params data is the dataset and atts is the array with the atributtes names and types
-      returns an array with the types of the attributes of the data
-      also gets the attributte that is id
-    */
+
+    componentWillUpdate(nextProps, nextState) {
+        if (nextState.data !== this.state.data) {
+            this.schema = new Schema(nextState.data);
+        }
+    }
+
+
     componentWillMount(){
-        // let datasets = this.state.datasets;
-        // datasets.forEach(d=>{
-        //   d3.csv(`datasets/${d.name}`, function(err,data) {
-        //     if(err) return err;
-        //     console.log(d.name)
-        //     console.log(data)
-        //     d.size = data.length;
-        //     d.data = data;
-        //     d.attributes = []
-        //     for (let prop in data[0]){
-        //       d.attributes.push(prop);
-        //     };
-        //     d.n_attributes = d.attributes.length;
-        //   })
-        // })
-        // this.setState({datasets});
+
     }
-    getAttributesType(data,atts,ids){
-        let seq = "sequential";
-        let cat = "categorical";
-        let count = 0;
-        for(let prop in data[1]){
-            let attr =data[1][prop];
-            if(atts[count].name.includes("id") || atts[count].name.includes("key")){
-                atts[count].id = true;
-                ids.push(atts[count].name);
-            }
-            let notNumber = isNaN(attr)
-            let isDate = this.isDate(attr);
-            if(!notNumber){
-                atts[count].type = seq;
-                atts[count].data = "number";
-            }else if(isDate){
-                atts[count].type = seq;
-                atts[count].data = "date";
-            }else {
-                atts[count].type = cat;
-                atts[count].data = "string";
-            }
-            count++;
-        }
-        if(ids.length === 0){
-            this.createId(data,atts);
-        }
+    getAttributesType(data,atts){
+        this.schema = new Schema(data);
+        this.schema.setAttr(atts);
     }
     createId(data,atts){
         console.log(data,atts);
@@ -98,32 +83,11 @@ class App extends Component {
             i.checked = true;
             i.type = "";
             i.id = false;
-            atts.push(i);
+            atts[i.name]=i;
         }
-        this.getAttributesType(data,atts,ids);
-        console.log(atts,'atts', ids,'ids');
-        data.forEach((row) => {
-            atts.forEach(att=> {
-                if(att.data === "date"){
-                    let mydate = new Date(row[att.name]);
-                    if(isNaN(mydate.getDate())){
-                        row[att.name] = null;
-                    }else {
-                        row[att.name] = mydate
-                    }
-
-                }
-                else if(att.data=== "number"){
-                    let mynumber = +row[att.name];
-                    if(isNaN(mynumber)){
-                        row[att.name] = null;
-                    }else{
-                        row[att.name] = mynumber;
-                    }
-                }
-            })
-        })
-        console.log(data,'dataParsed');
+        console.log(atts,"atts")
+        this.getAttributesType(data,atts);
+        console.log(data);
         this.setState({
             loaded: true,
             attributes: atts,
@@ -219,18 +183,6 @@ class App extends Component {
                         <div className="info"> <a href="#openModal">  <i className="fas fa-info-circle" ></i> </a></div>
                     </div>
 
-                    {/*<Menu*/}
-                        {/*setClosed={this.setClosed}*/}
-                        {/*changeCheckStatus={this.changeCheckStatus}*/}
-                        {/*changeTypeStatus={this.changeTypeStatus}*/}
-                        {/*loaded={this.state.loaded}*/}
-                        {/*attributes={this.state.attributes}*/}
-                        {/*ids={this.state.ids}*/}
-                        {/*id={this.state.id}*/}
-                        {/*setId={this.setId}*/}
-                        {/*setAttributes={this.setAttributes.bind(this)}*/}
-
-                    {/*/>*/}
 
                     <Content
                         closed={this.state.closed}
@@ -250,10 +202,6 @@ class App extends Component {
                         id={this.state.id}
                     />
 
-                    <div className="footer">
-
-                        <a href="https://github.com/john-guerra/nodenavigator" target="_blank" rel="noopener noreferrer"> Github Project MIT License <i className="fab fa-github"></i> </a>
-                    </div>
                 </div>
             </div>
         );
