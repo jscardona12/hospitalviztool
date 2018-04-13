@@ -21,6 +21,7 @@ class Recommender {
    * @return {Object[]} A series of (unnested) vega-lite specs.
    */
   generate(query) {
+    console.log("Reccomended");
     const opt = {};
 
     const recs = cql.recommend(query, this.schema, opt)['result'];

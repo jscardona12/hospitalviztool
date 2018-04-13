@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import * as d3 from "d3";
+//import * as d3 from "d3";
 import { Spin } from 'antd';
 //import TablePreview from './table/Table.jsx';
 import Load from './Load/Load.jsx';
+
 import Display from "./Display";
 //import Visualization from './visualization/Visualization.jsx';
 class Content extends Component {
     componentDidUpdate(){
-        console.log('update',this.props.closed, this.props.loaded)
+       /* console.log('update',this.props.closed, this.props.loaded)
         if(this.props.loaded){
             d3.select("#content")
                 .style("transition","margin-left 1s")
@@ -16,11 +17,11 @@ class Content extends Component {
         else{
             d3.select("#content")
                 .style("margin-left", "-50%");
-        }
+        }*/
     }
     render(){
         return(
-            <div id="content" className="content">
+            <div >
                 { !this.props.loaded?
                     <div className="load">
                         {!this.props.loading ?
@@ -39,14 +40,15 @@ class Content extends Component {
 
                     </div>
                     :
-                    <div>
-                        <Display
-                            data = {this.props.data}
-                            attr = {this.props.attributes}
-                            fieldNames = {["RE-HOSPITALIZACION" ,"GENERO"]}
-                            schema = {this.props.schema}
+                    <div className="container col-md-12">
 
-                        />
+
+                        {/*<Display*/}
+                            {/*data = {this.props.data}*/}
+                            {/*attr = {this.props.attributes}*/}
+                            {/*fieldNames = {["id" ,"RE-HOSPITALIZACION"]}*/}
+                            {/*schema = {this.props.schema}*/}
+                        {/*/>*/}
                     </div>
                 }
 

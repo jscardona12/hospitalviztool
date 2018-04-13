@@ -7,9 +7,6 @@ import moment from 'moment';
 const Dragger = Upload.Dragger;
 class Load extends Component {
     state = {
-        fileName: 'Upload a dataset',
-        ModalText: 'Content of the modal',
-        visible: false,
         confirmLoading: false,
     }
     showModal = () => {
@@ -17,40 +14,8 @@ class Load extends Component {
             visible: true,
         });
     }
-    handleOk = (name) => {
-        console.log(name);
-        this.setState({
-            ModalText: 'The modal will be closed after two seconds',
-            confirmLoading: true,
-        }, ()=>{
-            let response;
-            d3.csv(`../datasets/${name}`, (err, data) => {
-                if(err) return err;
-                console.log(data)
-                this.props.setData(data);
-                this.setState({
-                    visible: false,
-                    confirmLoading: false,
-                });
-            })
-        });
-    }
-    handleCancel = () => {
-        this.setState({
-            visible: false,
-        });
-    }
-    getFileSize = (file) => {
-        let fSExt = ['Bytes', 'KB', 'MB', 'GB'];
-        let fSize = file.size;
-        let i=0;
-        while(fSize>900){
-            fSize/=1024;
-            i++;
-        }
-        let finalSize = Math.round(fSize*100)/100 +' '+fSExt[i];
-        return finalSize
-    }
+
+
     handleFile(file){
         console.log('handleFile')
         const reader = new FileReader();
@@ -58,7 +23,7 @@ class Load extends Component {
             alert('No file selected.');
             return;
         }
-        reader.onload = (lEvent: any) => {
+        reader.onload = (lEvent) => {
             console.log('onload')
             const format = file.name.split('.').pop();
             let values;
@@ -129,6 +94,9 @@ class Load extends Component {
                             };
                             touple["RE-HOSPITALIZACION"] = 0;
                         }
+                    }
+                    else{
+                        touple["RE-HOSPITALIZACION"] = 0;
                     }
                 });
                 console.log(count);

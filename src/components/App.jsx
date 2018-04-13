@@ -8,21 +8,7 @@ import * as d3 from "d3";
 import Display from './Content/Display';
 import Schema from './js/schema';
 import Recommender from './js/recommender';
-
-
-const DEFAULT_DIMENSION_CONFIG = {
-    fieldType: null,
-    fieldTransformation: null,
-    fieldTypeLocked: false,
-    fieldTransformationLocked: false,
-};
-const FIELD_TYPES = ['quantitative', 'temporal', 'ordinal', 'nominal'];
-const FIELD_TRANSFORMATIONS = {
-    'quantitative': ['none', 'bin', 'mean', 'sum'],
-    'temporal': ['none', 'bin'],
-    'ordinal': ['none'],
-    'nominal': ['none']
-};
+import LeftSide from "./Content/LeftSide";
 
 
 class App extends Component {
@@ -58,16 +44,7 @@ class App extends Component {
         this.schema = new Schema(data);
         this.schema.setAttr(atts);
     }
-    createId(data,atts){
-        console.log(data,atts);
-    }
-    isDate(attr){
-        var mydate = new Date(attr);
-        if(isNaN(mydate.getDate())){
-            return false;
-        }
-        return true;
-    }
+
     setLoading = (loading) => {
         this.setState({loading:loading});
     };
@@ -85,7 +62,7 @@ class App extends Component {
             i.id = false;
             atts[i.name]=i;
         }
-        console.log(atts,"atts")
+        //console.log(atts,"atts")
         this.getAttributesType(data,atts);
         //console.log(data);
         this.setState({
@@ -95,111 +72,48 @@ class App extends Component {
             data: data,
             exportData:data,
             id: ids[0],
-        })
+        });
         console.log('end setting data')
     }
-    setId = (id) => {
-        console.log('setID');
-        this.setState({id:id})
-    }
-    setFile(file){
-        console.log('setFile');
-    }
+
     setAttributes(attrs){
         console.log('setatts');
         this.setState({attributes:attrs})
     }
-    changeTypeStatus = (attr,type) => {
-        console.log(attr,type,'changeTypeStatus');
-        let attrs = this.state.attributes;
-        attrs.forEach(a=> {
-            if(a.name === attr.name){
-                a.type = type;
-            }
-        })
-        this.setState({attributes:attrs});
-    }
-    onChangeAtt = (attChange) => {
-        this.setState({attChange});
-    }
-    changeCheckStatus = (attr, checked) => {
 
-        console.log(attr,checked,this.state);
-        let attrs = this.state.attributes;
-        attrs.forEach(a=>{
-            if(a.name === attr.name){
-                a.checked = checked;
-            }
-        })
-        this.setState({attributes:attrs, attChange:true});
-    }
-    updateCallback = (callback) => {
-        console.log('updateCallback',callback);
-        this.setExportData(callback);
-    }
-    setExportData = (exportData) => {
-        this.setState({exportData})
-    }
-    toggleModal = () => {
-        console.log('toggleModal')
-        this.setState({
-            showModal: !this.state.showModal,
-        })
-    }
     setLoaded = () => {
         this.setState({
             loaded:false,
             loading:false,
         });
     }
-    setClosed = (closed) => {
-        this.setState({closed})
-    }
-    getModal(){
-        return (
-            <div id="openModal" className="modalDialog">
-                <div>
-                    <a href="#close" title="Close" className="close">X</a>
-                    <h2>Viztool</h2>
-                    <p></p>
-                    {/*<iframe title="demo" width="100%" height="315" src="https://www.youtube.com/embed/Co074RJXzdk" frameBorder="0" allow="encrypted-media" allowFullScreen></iframe>*/}
-                </div>
-            </div>
-        );
-    }
     render() {
         return (
             <div>
-                {
-                    !this.state.showModal?
-                        this.getModal()
-                        : ''
-                }
+
                 <div className="container">
                     <div className="header">
                         {/*<div className="logo"> <Icon type="compass" /> </div>*/}
-                        <div> Viztool</div>
-
-                        <div className="info"> <a href="#openModal">  <i className="fas fa-info-circle" ></i> </a></div>
+                        <div> <h1>Viztool</h1></div>
                     </div>
 
+                    {this.state.loaded?
+                        <div className="col-md-12 row">
+                            <LeftSide data={this.state.data}
+                                      attributes={this.state.attributes}
+                                      schema = {this.schema}
+                                      keys={Object.keys(this.state.data[0])}/>
+                        </div>: <div></div>}
 
                     <Content
-                        closed={this.state.closed}
-                        onChangeAtt={this.onChangeAtt}
-                        attChange={this.state.attChange}
+
                         setLoaded={this.setLoaded}
                         setLoading={this.setLoading}
                         loading={this.state.loading}
-                        datasets={this.state.datasets}
                         setData={this.setData}
                         loaded={this.state.loaded}
                         data={this.state.data}
-                        updateCallback={this.updateCallback}
-                        exportData={this.state.exportData}
                         attributes={this.state.attributes}
-                        ids={this.state.ids}
-                        id={this.state.id}
                         schema = {this.schema}
 
                     />

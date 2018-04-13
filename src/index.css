@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.fix{
+  width : 20vw;
+  height : 60vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  margin-top: 5vh;
+}

@@ -20,7 +20,14 @@ export function clone(obj) {
  */
 export async function vl2svg(vlSpec, callback) {
   const spec =  vl.compile(vlSpec).spec;
-
+  console.log("Rendering");
+  console.log(spec);
+    // var view = new vega.View(vega.parse(spec))
+    //     .logLevel(vega.Warn) // set view logging level
+    //     .initialize(document.querySelector('#view')) // set parent DOM element
+    //     .renderer('svg') // set render type (defaults to 'canvas')
+    //     .hover() // enable hover event processing
+    //     .run();
   const view = new vega.View(vega.parse(spec), {
     loader: vega.loader({baseURL: null}),
     logLevel: vega.Warn,

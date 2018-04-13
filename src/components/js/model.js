@@ -25,7 +25,7 @@ class Model {
    * @return {Query} A compassQL query for this.
    */
   generate() {
-
+  console.log("Generating Model");
     const spec = {};
     spec['data'] = {
       values: this.data
@@ -41,7 +41,7 @@ class Model {
 
       encoding['field'] = this.fields[i];
 
-      if ( this.atts[this.fields[i]].type === 'quantitative' ||  this.atts[this.fields[i]].type === 'temporal' ) {
+      if ( this.atts[this.fields[i]].type === 'quantitative' ||  this.atts[this.fields[i]].type === 'temporal' || this.atts[this.fields[i]].type === 'key') {
         encoding['bin'] = '?';
       }
       if (this.atts[this.fields[i]].type === 'quantitative') {
