@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import { Icon } from 'antd';
 //import Menu from './menu/Menu.jsx';
 import Content from './Content/Content.jsx';
-import * as d3 from "d3";
-import Display from './Content/Display';
 import Schema from './js/schema';
-import Recommender from './js/recommender';
 import LeftSide from "./Content/LeftSide";
 
 
@@ -26,8 +22,6 @@ class App extends Component {
             closed:false,
         }
         this.schema = new Schema(this.state.data);
-        console.log(this.schema);
-        this.recommender = new Recommender();
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -101,7 +95,6 @@ class App extends Component {
                         <div className="col-md-12 row">
                             <LeftSide data={this.state.data}
                                       attributes={this.state.attributes}
-                                      schema = {this.schema}
                                       keys={Object.keys(this.state.data[0])}/>
                         </div>: <div></div>}
 

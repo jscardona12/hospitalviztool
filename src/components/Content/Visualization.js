@@ -10,12 +10,11 @@ class Visualization extends Component {
       svg: null,
       showDetailed: false
     };
-    // this.updateSvg(this.props.vlSpec);
+     this.updateSvg(this.props.vlSpec);
   }
   componentDidMount(){
       this.updateSvg(this.props.vlSpec);
   }
-
   updateSvg = (vlSpec) => {
       var s = null;
     vl2svg(vlSpec).then(
@@ -31,24 +30,17 @@ class Visualization extends Component {
     /*return s;*/
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (!equals(this.props, nextProps)) {
-  //     this.updateSvg(nextProps.vlSpec);
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (!equals(this.props, nextProps)) {
+      this.updateSvg(nextProps.vlSpec);
+    }
+  }
 
   render() {
     console.log("RENDERED")
     return (
-      <div className="Visualization fix">
-        <div className="ranking-box">
-          {this.props.ranking}
-        </div>
-        <div className="score-box">
-          score: {this.props.scores.score}
-        </div>
-
-              <div id="view" dangerouslySetInnerHTML={{__html: this.state.svg}}>
+      <div className="fix">
+              <div id="view" >
 
 
                   {/*<span dangerouslySetInnerHTML={{__html: this.state.svg}} />*/}

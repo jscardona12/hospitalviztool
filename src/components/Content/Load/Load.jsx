@@ -35,7 +35,7 @@ class Load extends Component {
                 var count = 0;
                 values.forEach((touple)=>{
 
-                    if(touple["CENTRO_ATENCION"] === "SERVICIOS DE HOSPITALIZACION") {
+                    if(touple["TIPO_INGRESO"] === "HOSPITALARIO") {
                         if (rehosp[touple["id"]]) {
                             // console.log("EXISTS")
                             var feini = rehosp[touple["id"]]["FECHA_DE_INGRESO"];

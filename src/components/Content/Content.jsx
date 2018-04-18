@@ -4,7 +4,7 @@ import { Spin } from 'antd';
 //import TablePreview from './table/Table.jsx';
 import Load from './Load/Load.jsx';
 
-import Display from "./Display";
+//import Display from "./Display";
 //import Visualization from './visualization/Visualization.jsx';
 class Content extends Component {
     componentDidUpdate(){

@@ -10,3 +10,13 @@ body {
   overflow-y: auto;
   margin-top: 5vh;
 }
+canvas {
+  border: 1px dotted red;
+}
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 30vw;
+  width: 40vw;
+}
