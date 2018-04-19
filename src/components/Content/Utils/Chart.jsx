@@ -7,7 +7,7 @@ export default class Chart extends Component{
 
     }
     componentDidMount(){
-        var data = {;
+        var data = {
             labels: this.props.labels,
             datasets: [{
                 label: "Graph",

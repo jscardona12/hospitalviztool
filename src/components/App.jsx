@@ -96,20 +96,20 @@ class App extends Component {
                             <LeftSide data={this.state.data}
                                       attributes={this.state.attributes}
                                       keys={Object.keys(this.state.data[0])}/>
-                        </div>: <div></div>}
+                        </div>: <Content
 
-                    <Content
+                            setLoaded={this.setLoaded}
+                            setLoading={this.setLoading}
+                            loading={this.state.loading}
+                            setData={this.setData}
+                            loaded={this.state.loaded}
+                            data={this.state.data}
+                            attributes={this.state.attributes}
+                            schema = {this.schema}
 
-                        setLoaded={this.setLoaded}
-                        setLoading={this.setLoading}
-                        loading={this.state.loading}
-                        setData={this.setData}
-                        loaded={this.state.loaded}
-                        data={this.state.data}
-                        attributes={this.state.attributes}
-                        schema = {this.schema}
+                        />}
 
-                    />
+
 
                 </div>
             </div>
