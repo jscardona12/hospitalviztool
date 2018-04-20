@@ -6,6 +6,30 @@ import Select from 'material-ui/Select';
 import AttributeIndex from './Utils/AttributeIndex.jsx';
 import {getCategories,getRelations} from "../js/categories";
 import Chart from "./Utils/Chart.jsx";
+import chart from "chart.js"
+
+const chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+};
+
+
+const COLORS = [
+        '#4dc9f6',
+        '#f67019',
+        '#f53794',
+        '#537bc4',
+        '#acc236',
+        '#166a8f',
+        '#00a950',
+        '#58595b',
+        '#8549ba'
+        ];
 
 export default class LeftSide extends Component {
     constructor(props) {
@@ -20,6 +44,7 @@ export default class LeftSide extends Component {
             disable:false,
             charts:[],
             relations:null,
+            catArr:null,
 
         }
         this.charts =[];
@@ -32,7 +57,14 @@ export default class LeftSide extends Component {
     setAttr = (key)=>{
 
         if(key){
-            this.setState({attr:key,disable:true,charts:[]});
+            var cr = this.createRelationGraphs;
+            this.setState({attr:key,disable:true,charts:[]},function(){
+                setTimeout(function()
+                {
+                    cr(key);
+                }, 1000);
+            });
+
         }
         else
             this.setState({attr:key,disable:false,charts:this.charts});
@@ -84,6 +116,7 @@ export default class LeftSide extends Component {
         //console.log(this.state.key);
         var arr1 = getCategories(this.props.data,e.target.value);
         var cat = arr1[1];
+        this.setState({catArr:cat});
         //console.log(cat);
         var ch = [];
         cat.forEach((cate,index)=>{
@@ -94,20 +127,106 @@ export default class LeftSide extends Component {
             var labels = cate.map(([k, e]) => {
                 return k;
             });
-            this.setState({cats:labels})
             //console.log(data,labels)
 
-            var char = <Chart key={index}id={index} labels={labels} data={data}/>
+            var char = <Chart key={index}id={index} labels={labels} attr={e.target.value} first={true} data={data}/>
             ch.push(char);
         })
 
         this.charts = ch;
         var relations = this.createRelations(e);
-        this.setState({charts:ch,relations:relations,cateObj:arr1[0]})
+        var l = Object.entries(arr1[0]).map(([k, e]) => {
+            return k;
+        });
+        this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l})
         console.log(relations);
     };
     createRelations = () =>{
       return getRelations(this.props.data,this.props.keys,this.state.key)
+    };
+
+    createRelationGraphs = (key)=>{
+        var cr = this.genRGraphs;
+        this.setState({charts:[]},function() {
+            setTimeout(function()
+            {
+               cr(key);
+            }, 1000);
+        });
+
+    };
+    genRGraphs = (key)=>{
+        var ch =[];
+        var self = this;
+        this.state.catArr.forEach((cate,index)=> {
+            var labels = cate.map(([k, e]) => {
+                return k;
+            });
+            var data = {
+                labels: labels,
+                datasets: []
+            };
+            var cat = Object.entries(self.state.relations[key]);
+            var ret = [cat];
+            if (cat.length > 10) {
+                ret = [];
+                var temp = [];
+                var count = 0;
+                cat.map(d => {
+                    if (count == 10) {
+                        ret.push(temp);
+                        temp = [];
+                        temp.push(d);
+                        count = 1;
+                    }
+                    else {
+                        count++;
+                        temp.push(d);
+                    }
+                })
+            }
+            //REVISAR BIEN NO ESTA FUNCIONANDO
+            ret.forEach((r, index) => {
+                r.forEach((k,e,index) => {
+                    var obj = [self.state.relations[key][k[0]]]
+                    //console.log(obj,"obj");
+                    var values = [];
+                    labels.forEach((l)=>{
+                        //console.log(l,'l');
+                        if(obj[0][l]){
+                            values.push(obj[0][l]);
+                        }
+                        else
+                            values.push(0);
+                    });
+                    console.log(values);
+                        this.addDataset(data, k[0], values);
+
+                    });
+                var char = <Chart key={index}id={index} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
+                ch.push(char);
+                });
+
+            this.setState({charts: ch});
+        });
+    };
+    addDataset = (data,attr,values)=>{
+        var color = chart.helpers.color;
+        var colorNames = Object.keys(chartColors);
+        var colorName = colorNames[data.datasets.length % colorNames.length];
+        var dsColor = chartColors[colorName];
+        var newDataset = {
+            label: attr,
+            backgroundColor: color(dsColor).alpha(0.2).rgbString(),
+            borderColor: dsColor,
+            borderWidth: 1,
+            hoverBackgroundColor: color(dsColor).alpha(0.4).rgbString(),
+            hoverBorderColor: color(dsColor).alpha(1).rgbString(),
+            data: []
+        };
+
+       newDataset.data = values;
+        data.datasets.push(newDataset);
     };
 
     render(){

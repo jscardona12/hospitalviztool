@@ -17,6 +17,6 @@ canvas {
 .chart-container {
   position: relative;
   margin: auto;
-  height: 30vw;
+  height: 50vh;
   width: 40vw;
 }
