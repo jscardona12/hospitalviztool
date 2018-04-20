@@ -15,7 +15,7 @@ export default class Chart extends Component{
     }
 
     getSGraph(){
-        var ctx = document.getElementById("chart" +this.props.id).getContext('2d');
+        var ctx = document.getElementById(this.props.id).getContext('2d');
         var char = new chart(ctx,{
             type: 'bar',
             options: {
@@ -62,7 +62,7 @@ export default class Chart extends Component{
             }
         };
 
-        var ctx = document.getElementById("chart" +this.props.id).getContext('2d');
+        var ctx = document.getElementById(this.props.id).getContext('2d');
         var char = new chart(ctx,{
             type: 'bar',
             options: options,
@@ -74,7 +74,7 @@ export default class Chart extends Component{
     render(){
         return(
             <div className="chart-container col-md-12">
-                <canvas id={"chart"+this.props.id }></canvas>
+                <canvas id={this.props.id }></canvas>
             </div>
 
         )

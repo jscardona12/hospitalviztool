@@ -45,9 +45,10 @@ export default class LeftSide extends Component {
             charts:[],
             relations:null,
             catArr:null,
+            chartsF : [],
 
         }
-        this.charts =[];
+        this.charts = [];
 
     }
 
@@ -56,6 +57,7 @@ export default class LeftSide extends Component {
     }
     setAttr = (key)=>{
 
+        var self = this;
         if(key){
             var cr = this.createRelationGraphs;
             this.setState({attr:key,disable:true,charts:[]},function(){
@@ -67,7 +69,13 @@ export default class LeftSide extends Component {
 
         }
         else
-            this.setState({attr:key,disable:false,charts:this.charts});
+            this.setState({attr:key,disable:false,charts:[]},function(){
+                setTimeout(function()
+                {
+                    console.log("deselect");
+                    self.setState({charts:self.state.chartsF});
+                }, 1000);
+            });
 
     };
     componentWillUpdate(){
@@ -129,7 +137,7 @@ export default class LeftSide extends Component {
             });
             //console.log(data,labels)
 
-            var char = <Chart key={index}id={index} labels={labels} attr={e.target.value} first={true} data={data}/>
+            var char = <Chart key={index}id={'f' + index} labels={labels} attr={e.target.value} first={true} data={data}/>
             ch.push(char);
         })
 
@@ -138,7 +146,7 @@ export default class LeftSide extends Component {
         var l = Object.entries(arr1[0]).map(([k, e]) => {
             return k;
         });
-        this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l})
+        this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch})
         console.log(relations);
     };
     createRelations = () =>{
@@ -223,7 +231,7 @@ export default class LeftSide extends Component {
                         this.addDataset(data, k[0], values);
 
                     });
-                var char = <Chart key={index}id={index} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
+                var char = <Chart key={index}id={'s' + index} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });
 
