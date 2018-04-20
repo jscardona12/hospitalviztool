@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28bb2388-e64e-44c6-8122-3864007ebddf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" afterPath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" afterPath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -60,8 +57,8 @@
       <file leaf-file-name="LeftSide.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Content/LeftSide.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
+            <state relative-caret-position="324">
+              <caret line="180" column="18" lean-forward="true" selection-start-line="180" selection-start-column="18" selection-end-line="180" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -130,9 +127,9 @@
       <find>onChange</find>
       <find>this.props.setLoa</find>
       <find>this.props.setLoading</find>
-      <find>filter</find>
       <find>this.state.cats</find>
       <find>disable:false</find>
+      <find>filter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -327,12 +324,12 @@
       <workItem from="1523981980379" duration="17469000" />
       <workItem from="1524149192412" duration="12436000" />
       <workItem from="1524183768126" duration="9297000" />
-      <workItem from="1524235075548" duration="3333000" />
+      <workItem from="1524235075548" duration="7422000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122899000" />
+    <option name="totallyTimeSpent" value="126988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -782,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Content/LeftSide.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="207" column="19" lean-forward="false" selection-start-line="207" selection-start-column="19" selection-end-line="207" selection-end-column="19" />
+        <state relative-caret-position="324">
+          <caret line="180" column="18" lean-forward="true" selection-start-line="180" selection-start-column="18" selection-end-line="180" selection-end-column="18" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>

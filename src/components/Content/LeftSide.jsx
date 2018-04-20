@@ -94,7 +94,7 @@ export default class LeftSide extends Component {
                     return b[1][e.target.value]- a[1][e.target.value]
                 });
 
-                console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
+                //console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
                 var key = {
                     name: k,
                     perc: (max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100,
@@ -162,11 +162,23 @@ export default class LeftSide extends Component {
             var labels = cate.map(([k, e]) => {
                 return k;
             });
-            var data = {
-                labels: labels,
-                datasets: []
-            };
+
             var cat = Object.entries(self.state.relations[key]);
+            cat = cat.sort(function (a, b) {
+                if(b[1][self.state.keyCat] && a[1][self.state.keyCat])
+                    return b[1][self.state.keyCat]- a[1][self.state.keyCat];
+                else if(!b[1][self.state.keyCat] && a[1][self.state.keyCat])
+                    return 0 - a[1][self.state.keyCat];
+                else if(b[1][self.state.keyCat] && !a[1][self.state.keyCat])
+                    return b[1][self.state.keyCat]- 0;
+                else
+                    return b;
+
+            });
+            // cat.filter((a)=>{return a[1][self.state.keyCat]}).sort(function (a, b) {
+            //     return b[1][self.state.keyCat]- a[1][self.state.keyCat];
+            //
+            // });
             var ret = [cat];
             if (cat.length > 10) {
                 ret = [];
@@ -186,7 +198,15 @@ export default class LeftSide extends Component {
                 })
             }
             //REVISAR BIEN NO ESTA FUNCIONANDO
+            //console.log(ret,"ret");
+
+            //console.log(ret,'ret');
             ret.forEach((r, index) => {
+                var data = {
+                    labels: labels,
+                    datasets: []
+                };
+               // console.log(r);
                 r.forEach((k,e,index) => {
                     var obj = [self.state.relations[key][k[0]]]
                     //console.log(obj,"obj");
@@ -199,7 +219,7 @@ export default class LeftSide extends Component {
                         else
                             values.push(0);
                     });
-                    console.log(values);
+                    //console.log(values);
                         this.addDataset(data, k[0], values);
 
                     });
@@ -259,7 +279,7 @@ export default class LeftSide extends Component {
                         this.state.cats?
                             <div>
                                 <FormControl >
-                                    <InputLabel htmlFor="Cat Selector">Select a categorie</InputLabel>
+                                    <InputLabel htmlFor="Cat Selector">Select a category</InputLabel>
                                     <Select
                                         value={this.state.keyCat}
                                         onChange={this.handleSelectCat}
@@ -273,7 +293,7 @@ export default class LeftSide extends Component {
 
                                         }
                                     </Select>
-                                    <FormHelperText>Select a categorie to analize</FormHelperText>
+                                    <FormHelperText>Select a category to analize</FormHelperText>
                                 </FormControl>
                             </div>: <div></div>
                     }
