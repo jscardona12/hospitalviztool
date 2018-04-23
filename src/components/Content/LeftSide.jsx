@@ -4,9 +4,11 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import AttributeIndex from './Utils/AttributeIndex.jsx';
-import {getCategories,getRelations} from "../js/categories";
+import {getCategories,getRelations,binTemp,binQuant} from "../js/categories";
 import Chart from "./Utils/Chart.jsx";
-import chart from "chart.js"
+import chart from "chart.js";
+import { Spin } from 'antd';
+
 
 const chartColors = {
     red: 'rgb(255, 99, 132)',
@@ -46,6 +48,7 @@ export default class LeftSide extends Component {
             relations:null,
             catArr:null,
             chartsF : [],
+            loading: false,
 
         }
         this.charts = [];
@@ -53,6 +56,7 @@ export default class LeftSide extends Component {
     }
 
     componentDidMount(){
+
         console.log(this.props.attributes);
     }
     setAttr = (key)=>{
@@ -82,12 +86,15 @@ export default class LeftSide extends Component {
         //this.setState({charts})
     }
     handleSelect = (e)=>{
+
+
         var cr = this.createKeyChart;
-        this.setState({charts:[],disable:false},function() {
+        var self = this;
+        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null},function() {
             setTimeout(function()
             {
                 cr(e);
-            }, 1000);
+            }, 2000);
         });
 
     };
@@ -122,11 +129,17 @@ export default class LeftSide extends Component {
         console.log(e.target.value);
         this.setState({key:e.target.value});
         //console.log(this.state.key);
-        var arr1 = getCategories(this.props.data,e.target.value);
+        var arr1 = []
+        if(this.props.attributes[e.target.value].type == 'temporal'){
+            arr1 = binTemp(this.props.data, e.target.value);
+        }
+        else
+            arr1 = getCategories(this.props.data,e.target.value);
         var cat = arr1[1];
         this.setState({catArr:cat});
         //console.log(cat);
         var ch = [];
+        console.log(arr1);
         cat.forEach((cate,index)=>{
             console.log(cate);
             var data = cate.map(([k, e]) => {
@@ -146,7 +159,7 @@ export default class LeftSide extends Component {
         var l = Object.entries(arr1[0]).map(([k, e]) => {
             return k;
         });
-        this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch})
+        this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch,loading:false})
         console.log(relations);
     };
     createRelations = () =>{
@@ -333,12 +346,17 @@ export default class LeftSide extends Component {
 
                 </div>
                 {/*RigthSide*/}
-                <div className="col-md-8 row">
-                    {
-                        this.state.charts !== []? this.state.charts: <div></div>
-                    }
+                {
+                    this.state.loading?
+                        <div className="center">
+                            <Spin size="large" tip="Analizing data..."/>
+                        </div>:  <div className="col-md-8 row">
+                            {
+                                this.state.charts !== []? this.state.charts: <div></div>
+                            }
 
-                </div>
+                        </div>
+                }
 
             </div>
 

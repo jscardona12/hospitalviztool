@@ -109,7 +109,7 @@ class Load extends Component {
                 let ssv = d3.dsvFormat(";");
                 console.log('err2');
                 values = ssv.parse(lEvent.target.result);
-                console.log(values);
+                //console.log(values);
                 this.props.setData(values);
                 this.setState({loading:false});
             }
