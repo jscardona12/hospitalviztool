@@ -27,12 +27,17 @@ export function getCategories(data, attr,callback) {
         ret = [];
         var temp = [];
         var count = 0;
+        var fin = cat[cat.length-1]
         cat.map(d =>{
             if(count ==10){
                 ret.push(temp);
                 temp = [];
                 temp.push(d);
                 count = 1;
+            }
+            else if(d === fin){
+                temp.push(d);
+                ret.push(temp);
             }
             else{
                 count ++;
@@ -97,15 +102,26 @@ export function binTemp(data,attr){
     var cate = Object.entries(cat);
     console.log("Creating Bin");
     var len = cate.length;
-    cate.sort(function(a,b){
-       return moment(a[0], 'MM-DD-YYYY HH:mm:ss').diff(moment(b[0], 'MM-DD-YYYY HH:mm:ss'));
-    });
-    var first = moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss').format('L');
-    var last  = moment(cate[len-1][0], 'MM-DD-YYYY HH:mm:ss').format('L');
+    // cate.sort(function(a,b){
+    //    return moment(a[0], 'MM-DD-YYYY HH:mm:ss').diff(moment(b[0], 'MM-DD-YYYY HH:mm:ss'));
+    // });
+    var max =  moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss');
+    var min =  moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss');
+    cate.forEach((k,e)=>{
+        var t = moment(k, 'MM-DD-YYYY HH:mm:ss');
+        if(t.diff(max)>0){
+         max = t;
+        }
+        if(t.diff(min)<0){
+            min = t;
+        }
+    })
+    var first = min.format('L');
+    var last  = max.format('L');
     var binArr = [first];
-    var temp = moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss');
+    var temp = min;
     console.log(temp.diff(moment(cate[len-1][0], 'MM-DD-YYYY HH:mm:ss')));
-    while(temp.diff(moment(cate[len-1][0], 'MM-DD-YYYY HH:mm:ss')) < 0){
+    while(temp.diff(max) < 0){
         temp.add(1,'month');
         var a = temp.format('L');
         binArr.push(a);
@@ -114,25 +130,29 @@ export function binTemp(data,attr){
     var bin = {};
     var i = 0;
     var j = 0;
-    while(i < binArr.length && j < cate.length){
-        var ind = binArr[i];
-        var k = cate[j][0];
-        var m = moment(k, 'MM-DD-YYYY HH:mm:ss')
+    while(j < cate.length){
+        var val = cate[j][0];
+        var m = moment(val, 'MM-DD-YYYY HH:mm:ss');
         var e = cate[j][1];
-        if(!bin[ind]){
-            bin[ind]= e;
-            j ++;
-            continue;
+        for(var i=0; i < binArr.length -1; i++){
+            var ind = binArr[i];
+            // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i], 'MM-DD-YYYY'))>=0);
+            // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i+1], 'MM-DD-YYYY'))<0);
+            if(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i], 'MM-DD-YYYY'))>=0 && moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i+1], 'MM-DD-YYYY'))<0){
+                if(!bin[ind]){
+                    bin[ind]= e;
+                    j ++;
+
+                }
+                else{
+                    bin[ind]= bin[ind] + e;
+                    j ++;
+
+                }
+                break;
+            }
         }
-        else if(moment(binArr[i + 1],"MM-DD-YYYY").diff(m)>0){
-            bin[ind]= bin[ind] + e;
-            j ++;
-            continue;
-        }
-        else if(moment(binArr[i + 1],"MM-DD-YYYY").diff(m)<=0){
-            i ++;
-            continue;
-        }
+
     }
     console.log(bin);
     var bine = bin;
@@ -145,12 +165,17 @@ export function binTemp(data,attr){
         ret = [];
         var temp1 = [];
         var count = 0;
+        var fin = bin[bin.length -1];
         bin.map(d =>{
             if(count ==20){
                 ret.push(temp1);
                 temp1 = [];
                 temp1.push(d);
                 count = 1;
+            }
+            else if(d === fin){
+                temp1.push(d);
+                ret.push(temp1);
             }
             else{
                 count ++;
@@ -165,12 +190,21 @@ export function binQuant(data,attr){
 
 }
 
-export function getRelationsTemp(data,keys,attr,callback){
+export function getRelationsTemp(data,keys,attr,bins,callback){
+    console.log("Geting relations ...")
     var catArr =[];
-    var cat ={}
+    var cat ={};
     var arr ={};
     data.forEach((d)=>{
         var val = d[attr];
+        for(var i=0; i < bins.length -1; i++){
+            // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i], 'MM-DD-YYYY'))>=0);
+            // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i+1], 'MM-DD-YYYY'))<0);
+            if(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i], 'MM-DD-YYYY'))>=0 && moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i+1], 'MM-DD-YYYY'))<0){
+                val = bins[i]
+                break;
+            }
+        }
         //console.log(arr);
         keys.forEach((key)=>{
             var val2 = d[key];

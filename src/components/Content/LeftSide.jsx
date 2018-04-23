@@ -4,7 +4,7 @@ import { MenuItem } from 'material-ui/Menu';
 import { FormControl, FormHelperText } from 'material-ui/Form';
 import Select from 'material-ui/Select';
 import AttributeIndex from './Utils/AttributeIndex.jsx';
-import {getCategories,getRelations,binTemp,binQuant} from "../js/categories";
+import {getCategories,getRelations,binTemp,binQuant,getRelationsTemp} from "../js/categories";
 import Chart from "./Utils/Chart.jsx";
 import chart from "chart.js";
 import { Spin } from 'antd';
@@ -68,7 +68,7 @@ export default class LeftSide extends Component {
                 setTimeout(function()
                 {
                     cr(key);
-                }, 1000);
+                }, 2000);
             });
 
         }
@@ -78,7 +78,7 @@ export default class LeftSide extends Component {
                 {
                     console.log("deselect");
                     self.setState({charts:self.state.chartsF});
-                }, 1000);
+                }, 2000);
             });
 
     };
@@ -90,7 +90,7 @@ export default class LeftSide extends Component {
 
         var cr = this.createKeyChart;
         var self = this;
-        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null},function() {
+        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null,key:e.target.value},function() {
             setTimeout(function()
             {
                 cr(e);
@@ -109,7 +109,7 @@ export default class LeftSide extends Component {
                     return b[1][e.target.value]- a[1][e.target.value]
                 });
 
-                //console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
+                console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
                 var key = {
                     name: k,
                     perc: (max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100,
@@ -127,7 +127,7 @@ export default class LeftSide extends Component {
 
     createKeyChart = (e)=>{
         console.log(e.target.value);
-        this.setState({key:e.target.value});
+        //this.setState({key:e.target.value});
         //console.log(this.state.key);
         var arr1 = []
         if(this.props.attributes[e.target.value].type == 'temporal'){
@@ -141,7 +141,7 @@ export default class LeftSide extends Component {
         var ch = [];
         console.log(arr1);
         cat.forEach((cate,index)=>{
-            console.log(cate);
+            //console.log(cate);
             var data = cate.map(([k, e]) => {
                 return e;
             });
@@ -152,13 +152,14 @@ export default class LeftSide extends Component {
 
             var char = <Chart key={index}id={'f' + index} labels={labels} attr={e.target.value} first={true} data={data}/>
             ch.push(char);
-        })
+        });
 
         this.charts = ch;
-        var relations = this.createRelations(e);
         var l = Object.entries(arr1[0]).map(([k, e]) => {
             return k;
         });
+        var relations = this.props.attributes[e.target.value].type == 'temporal'?getRelationsTemp(this.props.data,this.props.keys,this.state.key,l):this.createRelations(e);
+
         this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch,loading:false})
         console.log(relations);
     };
@@ -223,6 +224,7 @@ export default class LeftSide extends Component {
 
             //console.log(ret,'ret');
             ret.forEach((r, index) => {
+                var i = index;
                 var data = {
                     labels: labels,
                     datasets: []
@@ -244,7 +246,7 @@ export default class LeftSide extends Component {
                         this.addDataset(data, k[0], values);
 
                     });
-                var char = <Chart key={index}id={'s' + index} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
+                var char = <Chart key={index + '' + i}id={'s' + index+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });
 
