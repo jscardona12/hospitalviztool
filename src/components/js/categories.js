@@ -136,19 +136,17 @@ export function binTemp(data,attr){
         var e = cate[j][1];
         for(var i=0; i < binArr.length -1; i++){
             var ind = binArr[i];
+            if(!bin[ind]){
+                bin[ind]= 0;
+
+            }
             // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i], 'MM-DD-YYYY'))>=0);
             // console.log(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(bins[i+1], 'MM-DD-YYYY'))<0);
             if(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i], 'MM-DD-YYYY'))>=0 && moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i+1], 'MM-DD-YYYY'))<0){
-                if(!bin[ind]){
-                    bin[ind]= e;
-                    j ++;
 
-                }
-                else{
                     bin[ind]= bin[ind] + e;
                     j ++;
 
-                }
                 break;
             }
         }

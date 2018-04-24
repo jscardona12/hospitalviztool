@@ -180,7 +180,9 @@ export default class LeftSide extends Component {
     genRGraphs = (key)=>{
         var ch =[];
         var self = this;
+        var h = 0;
         this.state.catArr.forEach((cate,index)=> {
+            h++;
             var labels = cate.map(([k, e]) => {
                 return k;
             });
@@ -206,12 +208,17 @@ export default class LeftSide extends Component {
                 ret = [];
                 var temp = [];
                 var count = 0;
+                var fin = cat[cat.length -1]
                 cat.map(d => {
                     if (count == 10) {
                         ret.push(temp);
                         temp = [];
                         temp.push(d);
                         count = 1;
+                    }
+                    else if(d === fin){
+                        temp.push(d);
+                        ret.push(temp);
                     }
                     else {
                         count++;
@@ -246,7 +253,7 @@ export default class LeftSide extends Component {
                         this.addDataset(data, k[0], values);
 
                     });
-                var char = <Chart key={index + '' + i}id={'s' + index+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
+                var char = <Chart key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });
 
