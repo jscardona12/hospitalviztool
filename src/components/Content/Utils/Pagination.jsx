@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 export default class Pagination extends Component {
     constructor(props) {
         super(props);
-        this.state = { pager: {} };
+        this.state = { pager: {}, last:false};
         console.log(this.props);
         console.log("Rendering Pagination");
     }
@@ -62,12 +62,15 @@ export default class Pagination extends Component {
         } else {
             // more than 10 total pages so calculate start and end pages
             if (currentPage <= 4) {
+                this.setState({last:false});
                 startPage = 1;
                 endPage = 4;
-            } else if (currentPage + 2 >= totalPages) {
+            } else if (currentPage + 3 >= totalPages) {
+                this.setState({last:true});
                 startPage = totalPages - 4;
                 endPage = totalPages;
             } else {
+                this.setState({last:false});
                 startPage = currentPage - 2;
                 endPage = currentPage + 2;
             }
@@ -116,12 +119,22 @@ export default class Pagination extends Component {
                             <a  className="page-link" onClick={() => this.setPage(page)}>{page}</a>
                         </li>
                     )}
+                    {
+                        !this.state.last?<li className='page-item disabled'>
+                            <a className="page-link">...</a>
+                        </li>: <li></li>
+                    }
+                    {
+                        !this.state.last? <li className={'page-item'}>
+                            <a  className="page-link" onClick={() => this.setPage(pager.totalPages)}>{pager.totalPages}</a>
+                        </li>: <li></li>
+                    }
                     <li className={pager.currentPage === pager.totalPages ? 'page-item disabled' : 'page-item'}>
                         <a   className="page-link" onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
                     </li>
-                    <li className={pager.currentPage === pager.totalPages ? 'page-item disabled' : 'page-item'}>
+                   {/* <li className={pager.currentPage === pager.totalPages ? 'page-item disabled' : 'page-item'}>
                         <a  className="page-link" onClick={() => this.setPage(pager.totalPages)}>Last</a>
-                    </li>
+                    </li>*/}
                 </ul>
             </nav>
 

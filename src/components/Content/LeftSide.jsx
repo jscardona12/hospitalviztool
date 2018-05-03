@@ -50,7 +50,8 @@ export default class LeftSide extends Component {
             catArr:null,
             chartsF : [],
             loading: false,
-            pageOfItems: []
+            pageOfItems: [],
+            filter: "<18",
 
         }
         this.charts = [];
@@ -84,6 +85,19 @@ export default class LeftSide extends Component {
             });
 
     };
+    setFilter = (key)=>{
+
+        var self = this;
+        if(key){
+            var cr = this.createRelationGraphs;
+            this.setState({attr:key,disable:true,charts:[],filter:key},function(){
+                setTimeout(function()
+                {
+                    cr(key);
+                }, 2000);
+            });
+        }
+    };
     componentWillUpdate(){
         //this.setState({charts})
     }
@@ -92,7 +106,7 @@ export default class LeftSide extends Component {
 
         var cr = this.createKeyChart;
         var self = this;
-        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null,key:e.target.value},function() {
+        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null,key:e.target.value,pageOfItems:[]},function() {
             setTimeout(function()
             {
                 cr(e);
