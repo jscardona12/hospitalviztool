@@ -8,6 +8,7 @@ import {getCategories,getRelations,binTemp,binQuant,getRelationsTemp} from "../j
 import Chart from "./Utils/Chart.jsx";
 import chart from "chart.js";
 import { Spin } from 'antd';
+import Pagination from './Utils/Pagination.jsx'
 
 
 const chartColors = {
@@ -49,15 +50,16 @@ export default class LeftSide extends Component {
             catArr:null,
             chartsF : [],
             loading: false,
+            pageOfItems: []
 
         }
         this.charts = [];
-
+        console.log("hola");
     }
 
     componentDidMount(){
-
-        console.log(this.props.attributes);
+        // console.log(this.props.data);
+        // console.log(this.props.keys);
     }
     setAttr = (key)=>{
 
@@ -124,17 +126,19 @@ export default class LeftSide extends Component {
         this.setState({keys:keys});
 
     };
+    onChangePage = (pageOfItems)=> {
+        // update state with new page of items
+        this.setState({ pageOfItems: pageOfItems });
+    };
+
 
     createKeyChart = (e)=>{
         console.log(e.target.value);
         //this.setState({key:e.target.value});
         //console.log(this.state.key);
         var arr1 = []
-        if(this.props.attributes[e.target.value].type == 'temporal'){
-            arr1 = binTemp(this.props.data, e.target.value);
-        }
-        else
-            arr1 = getCategories(this.props.data,e.target.value);
+
+        arr1 = getCategories(this.props.data,e.target.value);
         var cat = arr1[1];
         this.setState({catArr:cat});
         //console.log(cat);
@@ -145,12 +149,19 @@ export default class LeftSide extends Component {
             var data = cate.map(([k, e]) => {
                 return e;
             });
-            var labels = cate.map(([k, e]) => {
-                return k;
-            });
+            var data = {
+                labels: [this.state.key],
+                datasets: []
+            };
             //console.log(data,labels)
 
-            var char = <Chart key={index}id={'f' + index} labels={labels} attr={e.target.value} first={true} data={data}/>
+                cate.map(([k, e]) => {
+                    var label = k ;
+
+                    this.addDataset(data,label,[e])
+                });
+
+            var char = <Chart key={index}id={'f' + this.state.key+ index}  attr={e.target.value} first={true} data={data}/>
             ch.push(char);
         });
 
@@ -158,7 +169,7 @@ export default class LeftSide extends Component {
         var l = Object.entries(arr1[0]).map(([k, e]) => {
             return k;
         });
-        var relations = this.props.attributes[e.target.value].type == 'temporal'?getRelationsTemp(this.props.data,this.props.keys,this.state.key,l):this.createRelations(e);
+        var relations = this.createRelations(e);
 
         this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch,loading:false})
         console.log(relations);
@@ -169,7 +180,7 @@ export default class LeftSide extends Component {
 
     createRelationGraphs = (key)=>{
         var cr = this.genRGraphs;
-        this.setState({charts:[]},function() {
+        this.setState({charts:[],loading:true},function() {
             setTimeout(function()
             {
                cr(key);
@@ -181,11 +192,11 @@ export default class LeftSide extends Component {
         var ch =[];
         var self = this;
         var h = 0;
-        this.state.catArr.forEach((cate,index)=> {
-            h++;
-            var labels = cate.map(([k, e]) => {
-                return k;
-            });
+        // this.state.catArr.forEach((cate,index)=> {
+        //     h++;
+            // var labels = cate.map(([k, e]) => {
+            //     return k;
+            // });
 
             var cat = Object.entries(self.state.relations[key]);
             cat = cat.sort(function (a, b) {
@@ -204,13 +215,13 @@ export default class LeftSide extends Component {
             //
             // });
             var ret = [cat];
-            if (cat.length > 10) {
+            if (cat.length > 6) {
                 ret = [];
                 var temp = [];
                 var count = 0;
                 var fin = cat[cat.length -1]
                 cat.map(d => {
-                    if (count == 10) {
+                    if (count === 6) {
                         ret.push(temp);
                         temp = [];
                         temp.push(d);
@@ -226,10 +237,7 @@ export default class LeftSide extends Component {
                     }
                 })
             }
-            //REVISAR BIEN NO ESTA FUNCIONANDO
-            //console.log(ret,"ret");
 
-            //console.log(ret,'ret');
             ret.forEach((r, index) => {
                 var i = index;
                 var data = {
@@ -252,13 +260,13 @@ export default class LeftSide extends Component {
                         this.addDataset(data, k[0], values);
 
                     });
-                console.log(data);
+                //console.log(data);
                 var char = <Chart key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });
 
-            this.setState({charts: ch});
-        });
+            this.setState({charts: ch, loading:false});
+        // });
     };
     addDataset = (data,attr,values)=>{
         var color = chart.helpers.color;
@@ -359,12 +367,19 @@ export default class LeftSide extends Component {
                     this.state.loading?
                         <div className="center">
                             <Spin size="large" tip="Analizing data..."/>
-                        </div>:  <div className="col-md-8 row">
-                            {
-                                this.state.charts !== []? this.state.charts: <div></div>
-                            }
+                        </div>:
+                        <div className="col-md-8">
+                            <div className="col-md-12">
+                                <Pagination items = {this.state.charts} initialPage={1} onChangePage={this.onChangePage}/>
+                            </div>
+                            <div className="col-md-12 row fixChart">
+                                {
+                                    this.state.pageOfItems !== []? this.state.pageOfItems: <div> <h3>No Hay Datos</h3></div>
+                                }
 
+                            </div>
                         </div>
+
                 }
 
             </div>

@@ -28,46 +28,34 @@ export default class Chart extends Component{
             },
             data: this.props.data
         });
+        char.render();
     }
 
     getFGraph(){
-        var data = {
-            labels: this.props.labels,
-            datasets: [{
-                label: this.props.attr,
-                backgroundColor: "rgba(255,99,132,0.2)",
-                borderColor: "rgba(255,99,132,1)",
-                borderWidth: 2,
-                hoverBackgroundColor: "rgba(255,99,132,0.4)",
-                hoverBorderColor: "rgba(255,99,132,1)",
-                data: this.props.data,
-            }]
-        };
-
-        var options = {
-            maintainAspectRatio: false,
-            scales: {
-                yAxes: [{
-                    stacked: true,
-                    gridLines: {
-                        display: true,
-                        color: "rgba(255,99,132,0.2)"
-                    }
-                }],
-                xAxes: [{
-                    gridLines: {
-                        display: false
-                    }
-                }]
-            }
-        };
-
         var ctx = document.getElementById(this.props.id).getContext('2d');
         var char = new chart(ctx,{
             type: 'bar',
-            options: options,
-            data: data
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                       // stacked: true,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)"
+                        }
+                    }],
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            },
+            data: this.props.data
         });
+
+        char.render();
 
     }
 

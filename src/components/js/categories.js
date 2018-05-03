@@ -23,13 +23,13 @@ export function getCategories(data, attr,callback) {
     cat = Object.entries(cat);
     cat.sort(function(a, b){return b[1]-a[1]});
     var ret = [cat];
-    if(cat.length > 10){
+    if(cat.length > 6){
         ret = [];
         var temp = [];
         var count = 0;
         var fin = cat[cat.length-1]
         cat.map(d =>{
-            if(count ==10){
+            if(count ===6){
                 ret.push(temp);
                 temp = [];
                 temp.push(d);

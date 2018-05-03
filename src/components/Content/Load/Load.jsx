@@ -4,6 +4,7 @@ import * as vega from 'vega';
 import * as d3 from "d3";
 import './load.css';
 import moment from 'moment';
+
 const Dragger = Upload.Dragger;
 class Load extends Component {
     state = {

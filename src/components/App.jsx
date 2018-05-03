@@ -5,14 +5,14 @@ import 'antd/dist/antd.css';
 import Content from './Content/Content.jsx';
 import Schema from './js/schema';
 import LeftSide from "./Content/LeftSide";
-
+import $ from "jquery";
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data:[],
-            loaded: false,
+            data:null,
+            loaded: true,
             showModal: false,
             attributes: [],
             ids: [],
@@ -21,7 +21,13 @@ class App extends Component {
             exportData:[],
             closed:false,
         }
-        this.schema = new Schema(this.state.data);
+        //this.schema = new Schema(this.state.data);
+        this.data = null;
+        var self = this;
+        $.getJSON("./datos.json",function( d ) {
+            self.setState({data: d}) ;
+            console.log("done");
+        });
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -32,6 +38,7 @@ class App extends Component {
 
 
     componentWillMount(){
+
 
     }
     getAttributesType(data,atts){
@@ -90,6 +97,8 @@ class App extends Component {
         });
     }
     render() {
+        var data = this.state.data;
+        console.log(data);
         return (
             <div>
 
@@ -99,11 +108,11 @@ class App extends Component {
                         <div> <h1>Viztool</h1></div>
                     </div>
 
-                    {this.state.loaded?
+                    {data?
                         <div className="col-md-12 row">
-                            <LeftSide data={this.state.data}
+                            <LeftSide data={data}
                                       attributes={this.state.attributes}
-                                      keys={Object.keys(this.state.data[0])}/>
+                                      keys={Object.keys(data[0])}/>
                         </div>: <Content
 
                             setLoaded={this.setLoaded}
