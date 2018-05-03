@@ -98,9 +98,15 @@ class Load extends Component {
                     else{
                         touple["RE-HOSPITALIZACION"] = 0;
                     }
+
                 });
-                console.log(count);
-                console.log('try2')
+
+                //console.log(count);
+                //console.log('try2');
+                values = this.setBinDate(values,"FECHA_DE_INGRESO");
+                values = this.setBinDate(values,"FECHA_EGRESO");
+                values = this.setBinAges(values,"EDAD_PACIENTE");
+                console.log(values);
                 this.props.setData(values);
                 this.setState({loading:false})
             } catch (err) {
@@ -117,6 +123,99 @@ class Load extends Component {
 
         reader.readAsText(file);
     }
+    setBinAges = (data,attr) =>{
+        var catArr =[];
+        var cat ={};
+        var categories = data.forEach((d)=>{
+            var val = d[attr];
+            if(!cat[val]) {
+                cat[val] = 1;
+                catArr.push(val);
+            }
+            else{
+                cat[val] ++;
+            }
+        });
+        var cate = Object.entries(cat);
+        var len = cate.length;
+        var max =  cate[0][0];
+        var min =  cate[0][0];
+        cate.forEach((k,e)=>{
+            var t = k
+            if(t > max){
+                max = t;
+            }
+            if(t < min){
+                min = t;
+            }
+        });
+        var binArr = [0,1,5,12,18,20,30,40,50,60,70,80,90,100,110,120];
+        data.forEach((touple)=>{
+            var val = touple[attr];
+            for(var i=0; i < binArr.length -1; i++){
+                var ind = binArr[i];
+                if(val - ind >=0 && val - binArr[i+1]<0){
+                    touple[attr] = ind;
+                    break;
+                }
+            }
+        });
+        return data;
+
+    };
+    setBinDate = (data,attr)=>{
+        var catArr =[];
+        var cat ={};
+        var categories = data.forEach((d)=>{
+            var val = d[attr];
+            if(!cat[val]) {
+                cat[val] = 1;
+                catArr.push(val);
+            }
+            else{
+                cat[val] ++;
+            }
+        });
+        var cate = Object.entries(cat);
+        var len = cate.length;
+        var max =  moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss');
+        var min =  moment(cate[0][0], 'MM-DD-YYYY HH:mm:ss');
+        cate.forEach((k,e)=>{
+            var t = moment(k, 'MM-DD-YYYY HH:mm:ss');
+            if(t.diff(max)>0){
+                max = t;
+            }
+            if(t.diff(min)<0){
+                min = t;
+            }
+        })
+        var first = min.format('L');
+        var last  = max.format('L');
+        var binArr = [first];
+        var temp = min;
+        console.log(temp.diff(moment(cate[len-1][0], 'MM-DD-YYYY HH:mm:ss')));
+        while(temp.diff(max) < 0){
+            temp.add(3,'month');
+            var a = temp.format('L');
+            binArr.push(a);
+        }
+        console.log(binArr);
+        var bin = {};
+        var i = 0;
+        var j = 0;
+        data.forEach((touple)=>{
+            var val = touple[attr];
+            for(var i=0; i < binArr.length -1; i++){
+                var ind = binArr[i];
+                if(moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i], 'MM-DD-YYYY'))>=0 && moment(val, 'MM-DD-YYYY HH:mm:ss').diff(moment(binArr[i+1], 'MM-DD-YYYY'))<0){
+                    touple[attr] = binArr[i];
+                    break;
+                }
+            }
+        });
+        return data;
+
+    };
     beforeUpload = (e) => {
         this.props.setLoading(true);
         this.handleFile(e);

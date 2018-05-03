@@ -233,7 +233,7 @@ export default class LeftSide extends Component {
             ret.forEach((r, index) => {
                 var i = index;
                 var data = {
-                    labels: labels,
+                    labels: [self.state.keyCat],
                     datasets: []
                 };
                // console.log(r);
@@ -241,18 +241,18 @@ export default class LeftSide extends Component {
                     var obj = [self.state.relations[key][k[0]]]
                     //console.log(obj,"obj");
                     var values = [];
-                    labels.forEach((l)=>{
                         //console.log(l,'l');
-                        if(obj[0][l]){
-                            values.push(obj[0][l]);
-                        }
-                        else
-                            values.push(0);
-                    });
+                    if(obj[0][self.state.keyCat]){
+                        values.push(obj[0][self.state.keyCat]);
+                    }
+                    else
+                        values.push(0);
+
                     //console.log(values);
                         this.addDataset(data, k[0], values);
 
                     });
+                console.log(data);
                 var char = <Chart key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });

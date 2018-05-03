@@ -122,7 +122,7 @@ export function binTemp(data,attr){
     var temp = min;
     console.log(temp.diff(moment(cate[len-1][0], 'MM-DD-YYYY HH:mm:ss')));
     while(temp.diff(max) < 0){
-        temp.add(1,'month');
+        temp.add(3,'month');
         var a = temp.format('L');
         binArr.push(a);
     }

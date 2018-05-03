@@ -1,0 +1,298 @@
+react-dom.development.js:15374 Download the React DevTools for a better development experience: https://fb.me/react-devtools
+webpackHotDevClient.js:138 ./src/components/js/categories.js
+  Line 1:    'd3' is assigned a value but never used          no-unused-vars
+  Line 2:    'vega' is assigned a value but never used        no-unused-vars
+  Line 10:   'categories' is assigned a value but never used  no-unused-vars
+  Line 31:   Expected to return a value in arrow function     array-callback-return
+  Line 32:   Expected '===' and instead saw '=='              eqeqeq
+  Line 52:   'catArr' is assigned a value but never used      no-unused-vars
+  Line 53:   'cat' is assigned a value but never used         no-unused-vars
+  Line 89:   'categories' is assigned a value but never used  no-unused-vars
+  Line 120:  'last' is assigned a value but never used        no-unused-vars
+  Line 135:  'm' is assigned a value but never used           no-unused-vars
+  Line 137:  'i' is already defined                           no-redeclare
+  Line 167:  Expected to return a value in arrow function     array-callback-return
+  Line 168:  Expected '===' and instead saw '=='              eqeqeq
+  Line 193:  'catArr' is assigned a value but never used      no-unused-vars
+  Line 194:  'cat' is assigned a value but never used         no-unused-vars
+printWarnings @ webpackHotDevClient.js:138
+handleWarnings @ webpackHotDevClient.js:155
+./node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:208
+./node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:51
+(anonymous) @ main.js:274
+./node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:272
+./node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:50
+WebSocketTransport.ws.onmessage @ websocket.js:35
+webpackHotDevClient.js:138 ./src/components/Content/Load/Load.jsx
+  Line 2:    'Button' is defined but never used                   no-unused-vars
+  Line 2:    'Modal' is defined but never used                    no-unused-vars
+  Line 2:    'Card' is defined but never used                     no-unused-vars
+  Line 32:   Expected an object to be thrown                      no-throw-literal
+  Line 35:   'count' is assigned a value but never used           no-unused-vars
+  Line 52:   'feini' is already defined                           no-redeclare
+  Line 66:   'feini' is already defined                           no-redeclare
+  Line 67:   'fefin' is already defined                           no-redeclare
+  Line 84:   'feini' is already defined                           no-redeclare
+  Line 85:   'fefin' is already defined                           no-redeclare
+  Line 129:  'categories' is assigned a value but never used      no-unused-vars
+  Line 140:  'len' is assigned a value but never used             no-unused-vars
+  Line 169:  'categories' is assigned a value but never used      no-unused-vars
+  Line 193:  'last' is assigned a value but never used            no-unused-vars
+  Line 203:  'bin' is assigned a value but never used             no-unused-vars
+  Line 204:  'i' is assigned a value but never used               no-unused-vars
+  Line 205:  'j' is assigned a value but never used               no-unused-vars
+  Line 209:  'ind' is assigned a value but never used             no-unused-vars
+  Line 225:  'visible' is assigned a value but never used         no-unused-vars
+  Line 225:  'confirmLoading' is assigned a value but never used  no-unused-vars
+printWarnings @ webpackHotDevClient.js:138
+handleWarnings @ webpackHotDevClient.js:155
+./node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:208
+./node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:51
+(anonymous) @ main.js:274
+./node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:272
+./node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:50
+WebSocketTransport.ws.onmessage @ websocket.js:35
+webpackHotDevClient.js:138 ./src/components/Content/LeftSide.jsx
+  Line 2:    'Input' is defined but never used                        no-unused-vars
+  Line 7:    'binQuant' is defined but never used                     no-unused-vars
+  Line 24:   'COLORS' is assigned a value but never used              no-unused-vars
+  Line 92:   'self' is assigned a value but never used                no-unused-vars
+  Line 104:  Expected to return a value at the end of arrow function  array-callback-return
+  Line 133:  Expected '===' and instead saw '=='                      eqeqeq
+  Line 161:  Expected '===' and instead saw '=='                      eqeqeq
+  Line 186:  'labels' is assigned a value but never used              no-unused-vars
+  Line 212:  Expected to return a value in arrow function             array-callback-return
+  Line 213:  Expected '===' and instead saw '=='                      eqeqeq
+  Line 336:  Expected to return a value at the end of arrow function  array-callback-return
+printWarnings @ webpackHotDevClient.js:138
+handleWarnings @ webpackHotDevClient.js:155
+./node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:208
+./node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:51
+(anonymous) @ main.js:274
+./node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:272
+./node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:50
+WebSocketTransport.ws.onmessage @ websocket.js:35
+webpackHotDevClient.js:138 ./src/components/Content/Utils/AttributeIndex.jsx
+  Line 2:  'FormGroup' is defined but never used  no-unused-vars
+printWarnings @ webpackHotDevClient.js:138
+handleWarnings @ webpackHotDevClient.js:155
+./node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:208
+./node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:51
+(anonymous) @ main.js:274
+./node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:272
+./node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:50
+WebSocketTransport.ws.onmessage @ websocket.js:35
+webpackHotDevClient.js:138 ./src/components/Content/Utils/Chart.jsx
+  Line 5:   Useless constructor                        no-useless-constructor
+  Line 19:  'char' is assigned a value but never used  no-unused-vars
+  Line 66:  'char' is assigned a value but never used  no-unused-vars
+printWarnings @ webpackHotDevClient.js:138
+handleWarnings @ webpackHotDevClient.js:155
+./node_modules/react-dev-utils/webpackHotDevClient.js.connection.onmessage @ webpackHotDevClient.js:208
+./node_modules/sockjs-client/lib/event/eventtarget.js.EventTarget.dispatchEvent @ eventtarget.js:51
+(anonymous) @ main.js:274
+./node_modules/sockjs-client/lib/main.js.SockJS._transportMessage @ main.js:272
+./node_modules/sockjs-client/lib/event/emitter.js.EventEmitter.emit @ emitter.js:50
+WebSocketTransport.ws.onmessage @ websocket.js:35
+abstract-xhr.js:132 XHR finished loading: GET "http://localhost:3000/sockjs-node/info?t=1525316345475".
+./node_modules/sockjs-client/lib/transport/browser/abstract-xhr.js.AbstractXHRObject._start @ abstract-xhr.js:132
+(anonymous) @ abstract-xhr.js:21
+setTimeout (async)
+AbstractXHRObject @ abstract-xhr.js:20
+XHRLocalObject @ xhr-local.js:8
+InfoAjax @ info-ajax.js:19
+./node_modules/sockjs-client/lib/info-receiver.js.InfoReceiver._getReceiver @ info-receiver.js:36
+./node_modules/sockjs-client/lib/info-receiver.js.InfoReceiver.doXhr @ info-receiver.js:56
+(anonymous) @ info-receiver.js:25
+setTimeout (async)
+InfoReceiver @ info-receiver.js:24
+SockJS @ main.js:121
+./node_modules/react-dev-utils/webpackHotDevClient.js @ webpackHotDevClient.js:61
+__webpack_require__ @ bootstrap 0c8b9b6aa2a16dbe5901:678
+fn @ bootstrap 0c8b9b6aa2a16dbe5901:88
+0 @ registerServiceWorker.js:117
+__webpack_require__ @ bootstrap 0c8b9b6aa2a16dbe5901:678
+./node_modules/add-dom-event-listener/lib/EventBaseObject.js.Object.defineProperty.value @ bootstrap 0c8b9b6aa2a16dbe5901:724
+(anonymous) @ bootstrap 0c8b9b6aa2a16dbe5901:724
+Load.jsx:20 handleFile
+Load.jsx:27 onload
+Load.jsx:31 try
+Load.jsx:196 -7981799000
+Load.jsx:202 (14) ["01/01/2012", "04/01/2012", "07/01/2012", "10/01/2012", "01/01/2013", "04/01/2013", "07/01/2013", "10/01/2013", "01/01/2014", "04/01/2014", "07/01/2014", "10/01/2014", "01/01/2015", "04/01/2015"]
+Load.jsx:196 -8050559000
+Load.jsx:202 (17) ["01/01/2012", "04/01/2012", "07/01/2012", "10/01/2012", "01/01/2013", "04/01/2013", "07/01/2013", "10/01/2013", "01/01/2014", "04/01/2014", "07/01/2014", "10/01/2014", "01/01/2015", "04/01/2015", "07/01/2015", "10/01/2015", "01/01/2016"]
+Load.jsx:109 (64999) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …][0 … 9999][0 … 99]0: CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION"CODIGO_CENTRO: "HOS"COD_DIAGNOSTICO: "A419"COD_ESPECIALIDAD: "24"COD_FUERZA: "4"EDAD_PACIENTE: 80FECHA_DE_INGRESO: "04/01/2012"FECHA_EGRESO: "04/01/2012"FECHA_NACIMIENTO: "08/15/1931 00:00:00"GENERO: "MASCULINO"INGRESO: "112874"NOMBRE_DIAGNOSTICO: "SEPTICEMIA  NO ESPECIFICADA                                                                         "NOMBRE_ESPECIALIDAD: "NO USAR. ANESTESIOLOGIA  CUIDADOS INTENSIVOS"NOMBRE_FUERZA: "ARMADA NACIONAL"RE-HOSPITALIZACION: 0TIPO_INGRESO: "HOSPITALARIO"TOTAL_FACTURA: "41379624"id: "284"__proto__: Object1: CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION"CODIGO_CENTRO: "HOS"COD_DIAGNOSTICO: "R073"COD_ESPECIALIDAD: "120"COD_FUERZA: "5"EDAD_PACIENTE: 80FECHA_DE_INGRESO: "10/01/2012"FECHA_EGRESO: "10/01/2012"FECHA_NACIMIENTO: "07/14/1929 00:00:00"GENERO: "MASCULINO"INGRESO: "486534"NOMBRE_DIAGNOSTICO: "OTROS DOLORES EN EL PECHO                                                                           "NOMBRE_ESPECIALIDAD: "CARDIOLOGIA"NOMBRE_FUERZA: "FAC  FUERZA AEREA COLOMBIANA"RE-HOSPITALIZACION: 0TIPO_INGRESO: "HOSPITALARIO"TOTAL_FACTURA: "15008313"id: "2343"__proto__: Object2: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}3: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}4: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}5: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}6: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}7: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}8: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}9: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}10: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}11: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2015", FECHA_EGRESO: "01/01/2015", …}12: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}13: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}14: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}15: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}16: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}17: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}18: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2012", FECHA_EGRESO: "10/01/2012", …}19: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}20: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}21: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}22: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}23: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2012", FECHA_EGRESO: "10/01/2012", …}24: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2012", FECHA_EGRESO: "10/01/2012", …}25: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2012", FECHA_EGRESO: "10/01/2012", …}26: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2013", FECHA_EGRESO: "04/01/2013", …}27: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}28: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}29: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}30: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}31: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}32: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}33: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}34: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2012", FECHA_EGRESO: "01/01/2012", …}35: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}36: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}37: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}38: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}39: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2012", FECHA_EGRESO: "01/01/2012", …}40: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2013", FECHA_EGRESO: "04/01/2013", …}41: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}42: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}43: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}44: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}45: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}46: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}47: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}48: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}49: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}50: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}51: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}52: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2014", FECHA_EGRESO: "10/01/2014", …}53: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2012", FECHA_EGRESO: "04/01/2012", …}54: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2012", FECHA_EGRESO: "07/01/2012", …}55: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}56: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}57: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}58: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}59: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}60: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}61: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}62: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2012", FECHA_EGRESO: "10/01/2012", …}63: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2012", FECHA_EGRESO: "10/01/2012", …}64: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}65: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2015", FECHA_EGRESO: "01/01/2015", …}66: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2013", FECHA_EGRESO: "04/01/2013", …}67: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}68: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}69: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}70: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}71: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "04/01/2014", …}72: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}73: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "10/01/2014", …}74: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}75: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}76: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}77: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "10/01/2013", …}78: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "10/01/2013", …}79: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2012", FECHA_EGRESO: "01/01/2012", …}80: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}81: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}82: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2014", FECHA_EGRESO: "04/01/2014", …}83: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "04/01/2012", …}84: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2013", FECHA_EGRESO: "01/01/2014", …}85: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "04/01/2012", FECHA_EGRESO: "07/01/2012", …}86: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}87: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}88: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2014", FECHA_EGRESO: "07/01/2014", …}89: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2012", FECHA_EGRESO: "07/01/2012", …}90: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "01/01/2013", FECHA_EGRESO: "01/01/2013", …}91: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "10/01/2014", FECHA_EGRESO: "10/01/2014", …}92: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}93: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "04/01/2013", FECHA_EGRESO: "04/01/2013", …}94: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}95: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}96: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}97: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}98: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "HOS", CENTRO_ATENCION: "SERVICIOS DE HOSPITALIZACION", FECHA_DE_INGRESO: "07/01/2013", FECHA_EGRESO: "07/01/2013", …}99: {TIPO_INGRESO: "HOSPITALARIO", CODIGO_CENTRO: "URG", CENTRO_ATENCION: "SERVICIO DE URGENCIAS", FECHA_DE_INGRESO: "01/01/2014", FECHA_EGRESO: "01/01/2014", …}[100 … 199][200 … 299][300 … 399][400 … 499][500 … 599][600 … 699][700 … 799][800 … 899][900 … 999][1000 … 1099][1100 … 1199][1200 … 1299][1300 … 1399][1400 … 1499][1500 … 1599][1600 … 1699][1700 … 1799][1800 … 1899][1900 … 1999][2000 … 2099][2100 … 2199][2200 … 2299][2300 … 2399][2400 … 2499][2500 … 2599][2600 … 2699][2700 … 2799][2800 … 2899][2900 … 2999][3000 … 3099][3100 … 3199][3200 … 3299][3300 … 3399][3400 … 3499][3500 … 3599][3600 … 3699][3700 … 3799][3800 … 3899][3900 … 3999][4000 … 4099][4100 … 4199][4200 … 4299][4300 … 4399][4400 … 4499][4500 … 4599][4600 … 4699][4700 … 4799][4800 … 4899][4900 … 4999][5000 … 5099][5100 … 5199][5200 … 5299][5300 … 5399][5400 … 5499][5500 … 5599][5600 … 5699][5700 … 5799][5800 … 5899][5900 … 5999][6000 … 6099][6100 … 6199][6200 … 6299][6300 … 6399][6400 … 6499][6500 … 6599][6600 … 6699][6700 … 6799][6800 … 6899][6900 … 6999][7000 … 7099][7100 … 7199][7200 … 7299][7300 … 7399][7400 … 7499][7500 … 7599][7600 … 7699][7700 … 7799][7800 … 7899][7900 … 7999][8000 … 8099][8100 … 8199][8200 … 8299][8300 … 8399][8400 … 8499][8500 … 8599][8600 … 8699][8700 … 8799][8800 … 8899][8900 … 8999][9000 … 9099][9100 … 9199][9200 … 9299][9300 … 9399][9400 … 9499][9500 … 9599][9600 … 9699][9700 … 9799][9800 … 9899][9900 … 9999][10000 … 19999][20000 … 29999][30000 … 39999][40000 … 49999][50000 … 59999][60000 … 64998]length: 64999__proto__: Array(0)
+App.jsx:46 setting data
+schema.js:37 Setting Attr
+LeftSide.jsx:283 {key: "", keyCat: "", keys: null, cateObj: null, cats: null, …}
+LeftSide.jsx:60 [TIPO_INGRESO: {…}, CODIGO_CENTRO: {…}, CENTRO_ATENCION: {…}, FECHA_DE_INGRESO: {…}, FECHA_EGRESO: {…}, …]
+App.jsx:70 end setting data
+index.js:2178 Warning: Can only update a mounted or mounting component. This usually means you called setState, replaceState, or forceUpdate on an unmounted component. This is a no-op.
+
+Please check the code for the Load component.
+__stack_frame_overlay_proxy_console__ @ index.js:2178
+printWarning @ warning.js:33
+warning @ warning.js:57
+warnAboutUpdateOnUnmounted @ react-dom.development.js:9766
+scheduleWorkImpl @ react-dom.development.js:10737
+scheduleWork @ react-dom.development.js:10689
+enqueueSetState @ react-dom.development.js:6212
+./node_modules/react/cjs/react.development.js.Component.setState @ react.development.js:237
+reader.onload @ Load.jsx:111
+load (async)
+handleFile @ Load.jsx:26
+Load._this.beforeUpload @ Load.jsx:221
+Upload._this.beforeUpload @ Upload.js:114
+upload @ AjaxUploader.js:96
+(anonymous) @ AjaxUploader.js:79
+uploadFiles @ AjaxUploader.js:77
+AjaxUploader._this.onChange @ AjaxUploader.js:32
+callCallback @ react-dom.development.js:542
+invokeGuardedCallbackDev @ react-dom.development.js:581
+invokeGuardedCallback @ react-dom.development.js:438
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:452
+executeDispatch @ react-dom.development.js:836
+executeDispatchesInOrder @ react-dom.development.js:858
+executeDispatchesAndRelease @ react-dom.development.js:956
+executeDispatchesAndReleaseTopLevel @ react-dom.development.js:967
+forEachAccumulated @ react-dom.development.js:935
+processEventQueue @ react-dom.development.js:1112
+runEventQueueInBatch @ react-dom.development.js:3607
+handleTopLevel @ react-dom.development.js:3616
+handleTopLevelImpl @ react-dom.development.js:3347
+batchedUpdates @ react-dom.development.js:11082
+batchedUpdates @ react-dom.development.js:2330
+dispatchEvent @ react-dom.development.js:3421
+temp1
+"486534"
+temp2
+(64999) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, …]
+var a = JSON.stringify(temp2);
+undefined
+a
+"[{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"04/01/2012","FECHA_EGRESO":"04/01/2012","id":"284","FECHA_NACIMIENTO":"08/15/1931 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"4","NOMBRE_FUERZA":"ARMADA NACIONAL","GENERO":"MASCULINO","COD_DIAGNOSTICO":"A419","NOMBRE_DIAGNOSTICO":"SEPTICEMIA  NO ESPECIFICADA                                                                         ","COD_ESPECIALIDAD":"24","NOMBRE_ESPECIALIDAD":"NO USAR. ANESTESIOLOGIA  CUIDADOS INTENSIVOS","INGRESO":"112874","TOTAL_FACTURA":"41379624","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"10/01/2012","FECHA_EGRESO":"10/01/2012","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"R073","NOMBRE_DIAGNOSTICO":"OTROS DOLORES EN EL PECHO                                                                           ","COD_ESPECIALIDAD":"120","NOMBRE_ESPECIALIDAD":"CARDIOLOGIA","INGRESO":"486534","TOTAL_FACTURA":"15008313","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"01/01/2013","FECHA_EGRESO":"01/01/2013","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"R072","NOMBRE_DIAGNOSTICO":"DOLOR PRECORDIAL                                                                                    ","COD_ESPECIALIDAD":"120","NOMBRE_ESPECIALIDAD":"CARDIOLOGIA","INGRESO":"703899","TOTAL_FACTURA":"1957293","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"07/01/2013","FECHA_EGRESO":"07/01/2013","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"I219","NOMBRE_DIAGNOSTICO":"INFARTO AGUDO DEL MIOCARDIO  SIN OTRA ESPECIFICACION                                                ","COD_ESPECIALIDAD":"120","NOMBRE_ESPECIALIDAD":"CARDIOLOGIA","INGRESO":"972984","TOTAL_FACTURA":"3741530","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"10/01/2013","FECHA_EGRESO":"10/01/2013","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"I209","NOMBRE_DIAGNOSTICO":"ANGINA DE PECHO  NO ESPECIFICADA                                                                    ","COD_ESPECIALIDAD":"120","NOMBRE_ESPECIALIDAD":"CARDIOLOGIA","INGRESO":"1074644","TOTAL_FACTURA":"3241736","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"01/01/2014","FECHA_EGRESO":"01/01/2014","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"I499","NOMBRE_DIAGNOSTICO":"ARRITMIA CARDIACA  NO ESPECIFICADA                                                                  ","COD_ESPECIALIDAD":"120","NOMBRE_ESPECIALIDAD":"CARDIOLOGIA","INGRESO":"1283381","TOTAL_FACTURA":"2810719","RE-HOSPITALIZACION":0},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"HOS","CENTRO_ATENCION":"SERVICIOS DE HOSPITALIZACION","FECHA_DE_INGRESO":"01/01/2014","FECHA_EGRESO":"01/01/2014","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"Z950","NOMBRE_DIAGNOSTICO":"PRESENCIA DE MARCAPASO CARDIACO                                                                     ","COD_ESPECIALIDAD":"121","NOMBRE_ESPECIALIDAD":"ELECTROFISIOLOGIA - CARDIACA","INGRESO":"1303404","TOTAL_FACTURA":"12806336","RE-HOSPITALIZACION":1},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"URG","CENTRO_ATENCION":"SERVICIO DE URGENCIAS","FECHA_DE_INGRESO":"01/01/2014","FECHA_EGRESO":"01/01/2014","id":"2343","FECHA_NACIMIENTO":"07/14/1929 00:00:00","EDAD_PACIENTE":80,"COD_FUERZA":"5","NOMBRE_FUERZA":"FAC  FUERZA AEREA COLOMBIANA","GENERO":"MASCULINO","COD_DIAGNOSTICO":"I10X","NOMBRE_DIAGNOSTICO":"HIPERTENSION ESENCIAL (PRIMARIA)                                                                    ","COD_ESPECIALIDAD":"60","NOMBRE_ESPECIALIDAD":"MEDICINA GENERAL","INGRESO":"1337451","TOTAL_FACTURA":"420142","RE-HOSPITALIZACION":1},{"TIPO_INGRESO":"HOSPITALARIO","CODIGO_CENTRO":"URG","CENTRO_ATENCION":"SERVICIO DE URGENCIAS","FECHA_DE_INGRESO":"01/01/2014","FECHA_EGRESO":"01/01/2014","id":"2343","FECHA_NAC"
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "", keys: null, cateObj: null, cats: null, …}
+LeftSide.jsx:129 RE-HOSPITALIZACION
+categories.js:7 Geting categories
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "", keys: null, cateObj: null, cats: null, …}
+LeftSide.jsx:142 (2) [{…}, Array(1)]
+categories.js:51 Calculating relations
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "", keys: null, cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:164 {TIPO_INGRESO: {…}, CODIGO_CENTRO: {…}, CENTRO_ATENCION: {…}, FECHA_DE_INGRESO: {…}, FECHA_EGRESO: {…}, …}
+LeftSide.jsx:112 100
+LeftSide.jsx:112 83.89632723252672
+LeftSide.jsx:112 83.89632723252672
+LeftSide.jsx:112 13.04508045694632
+LeftSide.jsx:112 11.939565163984769
+LeftSide.jsx:112 0.270237071612824
+LeftSide.jsx:112 0.270237071612824
+LeftSide.jsx:112 16.754698439995085
+LeftSide.jsx:112 74.1800761577202
+LeftSide.jsx:112 74.1800761577202
+LeftSide.jsx:112 55.619702739221225
+LeftSide.jsx:112 5.281906399705196
+LeftSide.jsx:112 5.281906399705196
+LeftSide.jsx:112 26.262129959464442
+LeftSide.jsx:112 26.262129959464442
+LeftSide.jsx:112 0.012283503255128362
+LeftSide.jsx:112 0.5036236334602628
+LeftSide.jsx:123 (17) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(5)}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:79 deselect
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:79 deselect
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:79 deselect
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(2)}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:79 deselect
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:79 deselect
+LeftSide.jsx:283 {key: "RE-HOSPITALIZACION", keyCat: "1", keys: Array(17), cateObj: {…}, cats: Array(2), …}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "1", keys: null, cateObj: {…}, cats: null, …}
+LeftSide.jsx:129 NOMBRE_ESPECIALIDAD
+categories.js:7 Geting categories
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "1", keys: null, cateObj: {…}, cats: null, …}
+LeftSide.jsx:142 (2) [{…}, Array(8)]
+categories.js:51 Calculating relations
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "1", keys: null, cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:164 {TIPO_INGRESO: {…}, CODIGO_CENTRO: {…}, CENTRO_ATENCION: {…}, FECHA_DE_INGRESO: {…}, FECHA_EGRESO: {…}, …}
+LeftSide.jsx:112 100
+LeftSide.jsx:112 93.90149892933619
+LeftSide.jsx:112 93.90149892933619
+LeftSide.jsx:112 9.096359743040686
+LeftSide.jsx:112 9.516059957173448
+LeftSide.jsx:112 0.17987152034261242
+LeftSide.jsx:112 0.18843683083511778
+LeftSide.jsx:112 22.68950749464668
+LeftSide.jsx:112 71.91434689507494
+LeftSide.jsx:112 71.91434689507494
+LeftSide.jsx:112 60.17987152034261
+LeftSide.jsx:112 11.160599571734476
+LeftSide.jsx:112 11.160599571734476
+LeftSide.jsx:112 100
+LeftSide.jsx:112 0.042826552462526764
+LeftSide.jsx:112 0.11134903640256959
+LeftSide.jsx:112 81.68736616702355
+LeftSide.jsx:123 (17) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(10)}
+LeftSide.jsx:255 {labels: Array(1), datasets: Array(6)}
+LeftSide.jsx:283 {key: "NOMBRE_ESPECIALIDAD", keyCat: "MEDICINA INTERNA", keys: Array(17), cateObj: {…}, cats: Array(72), …}
