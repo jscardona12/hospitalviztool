@@ -98,14 +98,14 @@ class App extends Component {
     }
     render() {
         var data = this.state.data;
-        console.log(data);
+        //console.log(data);
         return (
             <div>
 
                 <div className="container">
                     <div className="header">
                         {/*<div className="logo"> <Icon type="compass" /> </div>*/}
-                        <div> <h1>Viztool</h1></div>
+                        <div> <h1>JSToolHM</h1></div>
                     </div>
 
                     {data?

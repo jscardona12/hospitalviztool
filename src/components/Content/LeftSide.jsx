@@ -8,7 +8,8 @@ import {getCategories,getRelations,binTemp,binQuant,getRelationsTemp} from "../j
 import Chart from "./Utils/Chart.jsx";
 import chart from "chart.js";
 import { Spin } from 'antd';
-import Pagination from './Utils/Pagination.jsx'
+import Pagination from './Utils/Pagination.jsx';
+import Filter from './Utils/Filter.jsx';
 
 
 const chartColors = {
@@ -51,7 +52,7 @@ export default class LeftSide extends Component {
             chartsF : [],
             loading: false,
             pageOfItems: [],
-            filter: "<18",
+            filter: "No",
 
         }
         this.charts = [];
@@ -88,15 +89,20 @@ export default class LeftSide extends Component {
     setFilter = (key)=>{
 
         var self = this;
-        if(key){
-            var cr = this.createRelationGraphs;
-            this.setState({attr:key,disable:true,charts:[],filter:key},function(){
-                setTimeout(function()
-                {
-                    cr(key);
-                }, 2000);
-            });
+        if(this.state.key === "")
+            this.setState({filter:key});
+        else{
+            if(key){
+                var cr = this.createKeyChart;
+                this.setState({charts:[],loading:true,filter:key,pageOfItems:[]},function(){
+                    setTimeout(function()
+                    {
+                        cr(self.state.key);
+                    }, 2000);
+                });
+            }
         }
+
     };
     componentWillUpdate(){
         //this.setState({charts})
@@ -109,7 +115,7 @@ export default class LeftSide extends Component {
         this.setState({charts:[],disable:false,loading:true,keys:null,cats:null,key:e.target.value,pageOfItems:[]},function() {
             setTimeout(function()
             {
-                cr(e);
+                cr(e.target.value);
             }, 2000);
         });
 
@@ -147,17 +153,30 @@ export default class LeftSide extends Component {
 
 
     createKeyChart = (e)=>{
-        console.log(e.target.value);
+        //console.log(e.target.value);
         //this.setState({key:e.target.value});
         //console.log(this.state.key);
         var arr1 = []
-
-        arr1 = getCategories(this.props.data,e.target.value);
+        var data1 = this.props.data;
+        if(this.state.filter === "No")
+            data1 =data1;
+        else if(this.state.filter === "<18")
+            data1 = data1.filter((a)=>{return a["EDAD_PACIENTE"] <18});
+        else
+            data1 = data1.filter((a)=>{return a["EDAD_PACIENTE"] >=18});
+        console.log(data1);
+        arr1 = getCategories(data1,e);
         var cat = arr1[1];
+        /*if(this.state.filter === "No")
+            cat = arr1[1];
+        else if(this.state.filter === "<18")
+            cat = arr1[3];
+        else
+            cat = arr1[5];*/
         this.setState({catArr:cat});
         //console.log(cat);
         var ch = [];
-        console.log(arr1);
+        //console.log(arr1);
         cat.forEach((cate,index)=>{
             //console.log(cate);
             var data = cate.map(([k, e]) => {
@@ -175,7 +194,7 @@ export default class LeftSide extends Component {
                     this.addDataset(data,label,[e])
                 });
 
-            var char = <Chart key={index}id={'f' + this.state.key+ index}  attr={e.target.value} first={true} data={data}/>
+            var char = <Chart key={index}id={'f' + this.state.key+ index}  attr={e} first={true} data={data}/>
             ch.push(char);
         });
 
@@ -183,13 +202,15 @@ export default class LeftSide extends Component {
         var l = Object.entries(arr1[0]).map(([k, e]) => {
             return k;
         });
-        var relations = this.createRelations(e);
+
+
+        var relations = this.createRelations(data1);
 
         this.setState({charts:ch,relations:relations,cateObj:arr1[0],cats:l,chartsF:ch,loading:false})
         console.log(relations);
     };
-    createRelations = () =>{
-      return getRelations(this.props.data,this.props.keys,this.state.key)
+    createRelations = (data) =>{
+      return getRelations(data,this.props.keys,this.state.key);
     };
 
     createRelationGraphs = (key)=>{
@@ -326,6 +347,10 @@ export default class LeftSide extends Component {
                                 <FormHelperText>Select an attribute to analize</FormHelperText>
                             </FormControl>
                         </div>
+                    <div>
+                        <Filter setFilter = {this.setFilter}/>
+                    </div>
+
                     {/*CAT FORM CONTROL*/}
                     {
                         this.state.cats?

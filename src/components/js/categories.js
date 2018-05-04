@@ -5,18 +5,38 @@ const  moment = require('moment');
 
 export function getCategories(data, attr,callback) {
     console.log("Geting categories");
-    var catArr =[];
-    var cat ={}
-    var categories = data.forEach((d)=>{
+    //var catArr =[];
+    var cat ={};
+    var cat18 = {};
+    var cat17 = {};
+    data.forEach((d)=>{
         var val = d[attr];
+       /* if(d["EDAD_PACIENTE"]>=18){
+            if(!cat18[val]) {
+                cat18[val] = 1;
+                //catArr.push(val);
+            }
+            else{
+                cat18[val] ++;
+            }
+        }
+        else{
+            if(!cat17[val]) {
+                cat17[val] = 1;
+                //catArr.push(val);
+            }
+            else{
+                cat17[val] ++;
+            }
+        }*/
         if(!cat[val]) {
             cat[val] = 1;
-            catArr.push(val);
+            //catArr.push(val);
         }
         else{
             cat[val] ++;
         }
-    })
+    });
     var cate = cat;
     // console.log(catArr);
     // console.log(Object.entries(cat));
@@ -45,6 +65,58 @@ export function getCategories(data, attr,callback) {
             }
         })
     }
+   /* var cate18 = cat18;
+    cat18 = Object.entries(cat18);
+    cat18.sort(function(a, b){return b[1]-a[1]});
+    var ret18 = [cat18];
+    if(cat18.length > 6){
+        ret18 = [];
+        var temp = [];
+        var count = 0;
+        var fin = cat18[cat18.length-1]
+        cat.map(d =>{
+            if(count ===6){
+                ret18.push(temp);
+                temp = [];
+                temp.push(d);
+                count = 1;
+            }
+            else if(d === fin){
+                temp.push(d);
+                ret18.push(temp);
+            }
+            else{
+                count ++;
+                temp.push(d);
+            }
+        })
+    }
+    var cate17 = cat17;
+    cat17 = Object.entries(cat17);
+    cat17.sort(function(a, b){return b[1]-a[1]});
+    var ret17 = [cat17];
+    if(cat17.length > 6){
+        ret17 = [];
+        var temp = [];
+        var count = 0;
+        var fin = cat17[cat17.length-1]
+        cat.map(d =>{
+            if(count ===6){
+                ret17.push(temp);
+                temp = [];
+                temp.push(d);
+                count = 1;
+            }
+            else if(d === fin){
+                temp.push(d);
+                ret17.push(temp);
+            }
+            else{
+                count ++;
+                temp.push(d);
+            }
+        })
+    }*/
     return [cate,ret];
  }
 export function getRelations(data,keys,attr,callback) {
