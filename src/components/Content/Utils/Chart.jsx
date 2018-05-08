@@ -20,7 +20,16 @@ export default class Chart extends Component{
             type: 'bar',
             options: {
                 responsive: true,
-
+                scales: {
+                    yAxes: [{
+                        // stacked: true,
+                        ticks: {
+                            beginAtZero: true,
+                            // max: 100,
+                            // min: 0
+                        }
+                    }],
+                },
                 title: {
                     display: true,
                     text: this.props.attr,
@@ -40,9 +49,10 @@ export default class Chart extends Component{
                 scales: {
                     yAxes: [{
                        // stacked: true,
-                        gridLines: {
-                            display: true,
-                            color: "rgba(255,99,132,0.2)"
+                        ticks: {
+                            beginAtZero: true,
+                            // max: 100,
+                            // min: 0
                         }
                     }],
                     xAxes: [{

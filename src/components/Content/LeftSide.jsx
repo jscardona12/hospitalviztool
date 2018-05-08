@@ -10,6 +10,7 @@ import chart from "chart.js";
 import { Spin } from 'antd';
 import Pagination from './Utils/Pagination.jsx';
 import Filter from './Utils/Filter.jsx';
+import moment from 'moment';
 
 
 const chartColors = {
@@ -234,17 +235,27 @@ export default class LeftSide extends Component {
             // });
 
             var cat = Object.entries(self.state.relations[key]);
-            cat = cat.sort(function (a, b) {
-                if(b[1][self.state.keyCat] && a[1][self.state.keyCat])
-                    return b[1][self.state.keyCat]- a[1][self.state.keyCat];
-                else if(!b[1][self.state.keyCat] && a[1][self.state.keyCat])
-                    return 0 - a[1][self.state.keyCat];
-                else if(b[1][self.state.keyCat] && !a[1][self.state.keyCat])
-                    return b[1][self.state.keyCat]- 0;
-                else
-                    return b;
+            if(this.props.attributes[key].type !=="temporal" && this.props.attributes[key].type !=="quantitative" &&
+            key !== "EDAD_PACIENTE") {
+                cat = cat.sort(function (a, b) {
+                    if (b[1][self.state.keyCat] && a[1][self.state.keyCat])
+                        return b[1][self.state.keyCat] - a[1][self.state.keyCat];
+                    else if (!b[1][self.state.keyCat] && a[1][self.state.keyCat])
+                        return 0 - a[1][self.state.keyCat];
+                    else if (b[1][self.state.keyCat] && !a[1][self.state.keyCat])
+                        return b[1][self.state.keyCat] - 0;
+                    else
+                        return b;
 
-            });
+                });
+            }
+            else if(this.props.attributes[key].type ==="temporal" ){
+                cat = cat.sort(function(a,b){
+                    return moment(a[0], 'MM-DD-YYYY').diff(moment(b[0], 'MM-DD-YYYY'));
+                });
+            }
+
+
             // cat.filter((a)=>{return a[1][self.state.keyCat]}).sort(function (a, b) {
             //     return b[1][self.state.keyCat]- a[1][self.state.keyCat];
             //

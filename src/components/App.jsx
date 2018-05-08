@@ -12,7 +12,7 @@ class App extends Component {
         super(props);
         this.state = {
             data:null,
-            loaded: true,
+            loaded: false,
             showModal: false,
             attributes: [],
             ids: [],
@@ -21,11 +21,22 @@ class App extends Component {
             exportData:[],
             closed:false,
         }
-        //this.schema = new Schema(this.state.data);
+        this.schema = null;
         this.data = null;
         var self = this;
         $.getJSON("./datos.json",function( d ) {
-            self.setState({data: d}) ;
+            let atts = [];
+            for (let prop in d[0]){
+                let i = {};
+                i.name = prop;
+                i.checked = true;
+                i.type = "";
+                i.id = false;
+                atts[i.name]=i;
+            }
+            self.getAttributesType(d,atts);
+            self.setState({data: d,attributes:atts}) ;
+
             console.log("done");
         });
     }
@@ -98,7 +109,7 @@ class App extends Component {
     }
     render() {
         var data = this.state.data;
-        //console.log(data);
+        console.log(this.state.attributes);
         return (
             <div>
 
