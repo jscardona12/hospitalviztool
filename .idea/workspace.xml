@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="28bb2388-e64e-44c6-8122-3864007ebddf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/App.jsx" afterPath="$PROJECT_DIR$/src/components/App.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" afterPath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" afterPath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/js/categories.js" afterPath="$PROJECT_DIR$/src/components/js/categories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/js/util.js" afterPath="$PROJECT_DIR$/src/components/js/util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -490,12 +482,12 @@
       <workItem from="1525793708496" duration="6287000" />
       <workItem from="1525878588112" duration="943000" />
       <workItem from="1525902206164" duration="27783000" />
-      <workItem from="1526057559556" duration="7596000" />
+      <workItem from="1526057559556" duration="7903000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237808000" />
+    <option name="totallyTimeSpent" value="238115000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,7 +499,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1102" extended-state="0" />
+    <frame x="-11" y="-11" width="1942" height="1102" extended-state="1" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15066312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
