@@ -166,7 +166,7 @@ export default class LeftSide extends Component {
         else
             data1 = data1.filter((a)=>{return a["EDAD_PACIENTE"] >=18});
         console.log(data1);
-        arr1 = getCategories(data1,e);
+        arr1 = getCategories(data1,e,this.props.attributes);
         var cat = arr1[1];
         /*if(this.state.filter === "No")
             cat = arr1[1];
@@ -178,6 +178,9 @@ export default class LeftSide extends Component {
         //console.log(cat);
         var ch = [];
         //console.log(arr1);
+        var l = Object.entries(arr1[0]).map(([k, e]) => {
+            return k;
+        });
         cat.forEach((cate,index)=>{
             //console.log(cate);
             var data = cate.map(([k, e]) => {
@@ -195,14 +198,12 @@ export default class LeftSide extends Component {
                     this.addDataset(data,label,[e])
                 });
 
-            var char = <Chart key={index}id={'f' + this.state.key+ index}  attr={e} first={true} data={data}/>
+            var char = <Chart numCat = {l.length}type={this.props.attributes[e]["type"]}dataset={this.props.data} key={index}id={'f' + this.state.key+ index}  attr={e} first={true} data={data}/>
             ch.push(char);
         });
 
         this.charts = ch;
-        var l = Object.entries(arr1[0]).map(([k, e]) => {
-            return k;
-        });
+
 
 
         var relations = this.createRelations(data1);
@@ -307,7 +308,7 @@ export default class LeftSide extends Component {
 
                     });
                 //console.log(data);
-                var char = <Chart key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
+                var char = <Chart dataset={self.props.data} key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });
 
@@ -422,7 +423,7 @@ export default class LeftSide extends Component {
                             <div className="col-md-12">
                                 <Pagination items = {this.state.charts} initialPage={1} onChangePage={this.onChangePage}/>
                             </div>
-                            <div className="col-md-12 row fixChart">
+                            <div className="col-md-12 row ">
                                 {
                                     this.state.pageOfItems !== []? this.state.pageOfItems: <div> <h3>No Hay Datos</h3></div>
                                 }

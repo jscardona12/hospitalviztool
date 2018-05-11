@@ -4,10 +4,11 @@
   "private": true,
   "dependencies": {
     "antd": "^3.4.0",
+    "c3": "^0.5.4",
     "chart.js": "^2.7.2",
+    "chartjs-plugin-zoom": "^0.6.3",
     "compassql": "^0.20.0",
     "d3": "^4.13.0",
-    "datavoyager": "^2.0.0-alpha.15",
     "jquery": "^3.3.1",
     "material-ui": "^1.0.0-beta.37",
     "moment": "^2.21.0",
@@ -15,7 +16,11 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "vega": "^4.0.0-rc.1",
+    "vega-embed": "^3.9.0",
+    "vega-lite": "^2.4.3",
+    "vega-tooltip": "^0.9.16"
   },
   "scripts": {
     "start": "react-scripts start",

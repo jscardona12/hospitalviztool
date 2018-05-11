@@ -12,7 +12,7 @@ class App extends Component {
         super(props);
         this.state = {
             data:null,
-            loaded: false,
+            loaded: true,
             showModal: false,
             attributes: [],
             ids: [],

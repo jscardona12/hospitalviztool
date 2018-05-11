@@ -3,7 +3,7 @@ const vega = require('vega');
 const  moment = require('moment');
 
 
-export function getCategories(data, attr,callback) {
+export function getCategories(data, attr,atts,callback) {
     console.log("Geting categories");
     //var catArr =[];
     var cat ={};
@@ -41,15 +41,25 @@ export function getCategories(data, attr,callback) {
     // console.log(catArr);
     // console.log(Object.entries(cat));
     cat = Object.entries(cat);
-    cat.sort(function(a, b){return b[1]-a[1]});
+    if(atts[attr].type !=="temporal" && atts[attr].type !=="quantitative" &&
+        attr !== "EDAD_PACIENTE") {
+        cat.sort(function (a, b) {
+            return b[1] - a[1]
+        });
+    }
+    else if(atts[attr].type ==="temporal" ){
+        cat = cat.sort(function(a,b){
+            return moment(a[0], 'MM-DD-YYYY').diff(moment(b[0], 'MM-DD-YYYY'));
+        });
+    }
     var ret = [cat];
-    if(cat.length > 6){
+    if(cat.length > 400000000){
         ret = [];
         var temp = [];
         var count = 0;
         var fin = cat[cat.length-1]
         cat.map(d =>{
-            if(count ===6){
+            if(count ===1000){
                 ret.push(temp);
                 temp = [];
                 temp.push(d);
