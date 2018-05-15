@@ -106,8 +106,8 @@ class Load extends Component {
                 //console.log('try2');
                 values = this.setBinDate(values,"FECHA_DE_INGRESO");
                 values = this.setBinDate(values,"FECHA_EGRESO");
-                values = this.setBinDate(values,"FECHA_NACIMIENTO");
-                values = this.setBinAges(values,"EDAD_PACIENTE");
+               // values = this.setBinDate(values,"FECHA_NACIMIENTO");
+               // values = this.setBinAges(values,"EDAD_PACIENTE");
                 console.log(values);
                 this.props.setData(values);
                 this.setState({loading:false})

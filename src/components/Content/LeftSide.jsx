@@ -198,7 +198,7 @@ export default class LeftSide extends Component {
                     this.addDataset(data,label,[e])
                 });
 
-            var char = <Chart numCat = {l.length}type={this.props.attributes[e]["type"]}dataset={this.props.data} key={index}id={'f' + this.state.key+ index}  attr={e} first={true} data={data}/>
+            var char = <Chart numCat = {l.length}type={this.props.attributes[e]["type"]}dataset={data1} key={index}id={'f' + this.state.key+ index}  attr={e} first={true} data={data}/>
             ch.push(char);
         });
 

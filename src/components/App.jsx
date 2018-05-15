@@ -24,7 +24,7 @@ class App extends Component {
         this.schema = null;
         this.data = null;
         var self = this;
-        $.getJSON("./datos.json",function( d ) {
+        $.getJSON("./datos1.json",function( d ) {
             let atts = [];
             for (let prop in d[0]){
                 let i = {};
@@ -35,6 +35,7 @@ class App extends Component {
                 atts[i.name]=i;
             }
             self.getAttributesType(d,atts);
+            console.log(atts);
             self.setState({data: d,attributes:atts}) ;
 
             console.log("done");
@@ -119,7 +120,7 @@ class App extends Component {
                         <div> <h1>JSToolHM</h1></div>
                     </div>
 
-                    {data?
+                    {data && this.state.loaded?
                         <div className="col-md-12 row">
                             <LeftSide data={data}
                                       attributes={this.state.attributes}
