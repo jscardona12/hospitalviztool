@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28bb2388-e64e-44c6-8122-3864007ebddf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Content/Load/Load.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Load/Load.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,7 +26,7 @@
       <file leaf-file-name="App.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/App.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="544">
               <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
             </state>
           </provider>
@@ -59,8 +58,8 @@
       <file leaf-file-name="LeftSide.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Content/LeftSide.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1012">
-              <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+            <state relative-caret-position="204">
+              <caret line="448" column="69" selection-start-line="448" selection-start-column="69" selection-end-line="448" selection-end-column="69" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -68,35 +67,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="AttributeIndex.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Chart.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="185" column="49" selection-start-line="185" selection-start-column="49" selection-end-line="185" selection-end-column="49" />
+            <state relative-caret-position="340">
+              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
                 <element signature="e#92#121#0" expanded="true" />
-                <element signature="e#524#1264#0" />
-                <element signature="e#634#1233#0" />
-                <element signature="e#692#1188#0" />
-                <element signature="e#752#1052#0" />
-                <element signature="e#781#1033#0" />
-                <element signature="e#782#1032#0" />
-                <element signature="e#857#1010#0" />
-                <element signature="e#934#946#0" />
-                <element signature="e#1077#1174#0" />
-                <element signature="e#1519#1545#0" />
-                <element signature="e#2381#3718#0" />
-                <element signature="e#2471#3994#0" />
-                <element signature="e#2572#2623#0" />
-                <element signature="e#2647#2713#0" />
-                <element signature="e#2742#2908#0" />
-                <element signature="e#2770#2890#0" />
-                <element signature="e#3034#3904#0" />
-                <element signature="e#3058#3145#0" />
-                <element signature="e#3170#3561#0" />
-                <element signature="e#3309#3475#0" />
-                <element signature="e#3929#3980#0" />
               </folding>
             </state>
           </provider>
@@ -105,8 +92,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="187">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -123,8 +110,8 @@
       <file leaf-file-name="Load.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Content/Load/Load.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1946">
-              <caret line="234" column="72" selection-start-line="234" selection-start-column="72" selection-end-line="234" selection-end-column="72" />
+            <state relative-caret-position="151">
+              <caret line="197" column="73" selection-start-line="197" selection-start-column="64" selection-end-line="197" selection-end-column="73" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -159,9 +146,9 @@
       <find>==</find>
       <find>this.ge</find>
       <find>filter</find>
-      <find>sort</find>
       <find>R</find>
       <find>fixCha</find>
+      <find>sort</find>
     </findStrings>
     <replaceStrings>
       <replace>PropTypes</replace>
@@ -187,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/components/Content/Content.jsx.js" />
         <option value="$PROJECT_DIR$/src/components/Display.js" />
         <option value="$PROJECT_DIR$/src/components/js/schema.js" />
-        <option value="$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx" />
         <option value="$PROJECT_DIR$/src/components/Content/Display.js" />
         <option value="$PROJECT_DIR$/src/components/js/recommender.js" />
         <option value="$PROJECT_DIR$/src/components/Content/Utils/Navio.js" />
@@ -201,13 +187,14 @@
         <option value="$PROJECT_DIR$/src/components/Content/Utils/Filter.jsx" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/node_modules/c3-react/lib/C3Chart.js" />
-        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/js/categories.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/js/util.js" />
         <option value="$PROJECT_DIR$/src/components/Content/Load/Load.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" />
         <option value="$PROJECT_DIR$/src/components/App.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Content/LeftSide.jsx" />
+        <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx" />
       </list>
     </option>
@@ -251,6 +238,32 @@
               <item name="hospitalviztool" type="b2602c69:ProjectViewProjectNode" />
               <item name="hospitalviztool" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospitalviztool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospitalviztool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospitalviztool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospitalviztool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospitalviztool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospitalviztool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Content" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hospitalviztool" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hospitalviztool" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Content" type="462c0819:PsiDirectoryNode" />
+              <item name="Utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,12 +356,13 @@
       <workItem from="1525878588112" duration="943000" />
       <workItem from="1525902206164" duration="27783000" />
       <workItem from="1526057559556" duration="7903000" />
-      <workItem from="1526398443334" duration="13621000" />
+      <workItem from="1526398443334" duration="13740000" />
+      <workItem from="1526474372602" duration="12577000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="251736000" />
+    <option name="totallyTimeSpent" value="264432000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -364,21 +378,21 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="10" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13632782" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13632782" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32984293" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3071038" />
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.30627707" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32963374" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -398,7 +412,7 @@
           <line>10</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -561,13 +575,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/index.html" />
-    <entry file="file://$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/c3-react/lib/C3Chart.js" />
     <entry file="file://$PROJECT_DIR$/node_modules/c3/c3.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -589,13 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="55" column="29" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -625,59 +625,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
+        <state relative-caret-position="544">
           <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Content/Load/Load.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1946">
-          <caret line="234" column="72" selection-start-line="234" selection-start-column="72" selection-end-line="234" selection-end-column="72" />
+        <state relative-caret-position="151">
+          <caret line="197" column="73" selection-start-line="197" selection-start-column="64" selection-end-line="197" selection-end-column="73" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Content/Utils/AttributeIndex.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Content/LeftSide.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1012">
-          <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+        <state relative-caret-position="204">
+          <caret line="448" column="69" selection-start-line="448" selection-start-column="69" selection-end-line="448" selection-end-column="69" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Content/Utils/Chart.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="185" column="49" selection-start-line="185" selection-start-column="49" selection-end-line="185" selection-end-column="49" />
+        <state relative-caret-position="340">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
             <element signature="e#92#121#0" expanded="true" />
-            <element signature="e#524#1264#0" />
-            <element signature="e#634#1233#0" />
-            <element signature="e#692#1188#0" />
-            <element signature="e#752#1052#0" />
-            <element signature="e#781#1033#0" />
-            <element signature="e#782#1032#0" />
-            <element signature="e#857#1010#0" />
-            <element signature="e#934#946#0" />
-            <element signature="e#1077#1174#0" />
-            <element signature="e#1519#1545#0" />
-            <element signature="e#2381#3718#0" />
-            <element signature="e#2471#3994#0" />
-            <element signature="e#2572#2623#0" />
-            <element signature="e#2647#2713#0" />
-            <element signature="e#2742#2908#0" />
-            <element signature="e#2770#2890#0" />
-            <element signature="e#3034#3904#0" />
-            <element signature="e#3058#3145#0" />
-            <element signature="e#3170#3561#0" />
-            <element signature="e#3309#3475#0" />
-            <element signature="e#3929#3980#0" />
           </folding>
         </state>
       </provider>

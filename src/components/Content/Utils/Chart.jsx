@@ -20,7 +20,140 @@ export default class Chart extends Component{
     }
 
     getSGraph(){
-        var ctx = document.getElementById(this.props.id).getContext('2d');
+        console.log(this.props.compCat);
+        var compCat = this.props.compCat;
+        var comp = "datum['"+this.props.attr+"'] == '"+this.props.catKey +"'";
+        var bool = false;
+        if(compCat !== ""){
+            bool = true;
+            comp = "datum['"+this.props.attr+"'] == '"+this.props.catKey +"'"+"||" + "datum['"+this.props.attr+"'] == '" +this.props.compCat +"'";
+        }
+
+
+        var spec = {};
+        console.log(this.props.numCat,"###");
+        if(true){
+            spec = {
+                $schema: "https://vega.github.io/schema/vega-lite/v2.json",
+                description: "Graph",
+                width: bool?250:500,
+                autosize: {
+                    type: "pad"
+                },
+                data: {
+                    values: this.props.dataset
+                },
+                transform: [
+                    {filter: comp},
+                ],
+                selection: {
+                    grid: {
+                        type: "interval", bind: "scales",
+                        zoom: "wheel!"
+                    }
+                },
+                mark: "bar",
+                encoding: {
+                    column: {field: this.props.attr, type: this.props.type},
+                    y:{aggregate: "count", type: "quantitative",
+                        axis: {grid: false}},
+                    x: {field: this.props.compAttr, type:  this.props.typeAttr !=="key"?this.props.typeAttr:"quantitative",axis: {title: this.props.compAttr},
+                        sort: this.props.typeAttr !== "quantitative"|| this.props.typeAttr !== "key"||this.props.typeAttr !== "temporal"?{op:"count",field:this.props.attr,order:"descending"}:false,
+                        bin:this.props.typeAttr === "quantitative"|| this.props.typeAttr === "key"?{maxbins:15}:false},
+                    tooltip:[
+                        {field: this.props.compAttr, type: this.props.typeAttr},
+                        {aggregate: "count", type:"quantitative"}
+                    ],
+                    color: this.props.typeAttr !== "temporal"?{field: this.props.compAttr, type: this.props.typeAttr !=="key"?this.props.type:"quantitative", legend:null}:null
+                },
+                config:{
+                    legend:null
+                }
+            };
+        }
+        else{
+            spec = {
+                $schema: "https://vega.github.io/schema/vega-lite/v2.json",
+                data: {
+                    values: this.props.dataset
+                },
+                transform:this.props.type !== "temporal"?[]:[ {
+                    aggregate: [{
+                        op: "count",
+                        as: "sumTemp"
+                    }],
+                    groupby:[this.props.attr]
+                }],
+
+                vconcat: [
+                    {
+                        width: 500,
+                        mark: "bar",
+                        selection: {
+                            brush: {
+                                type: "interval",
+                                encodings: ["x","y"],
+                                on: "[mousedown, window:mouseup] > window:mousemove!",
+                                translate: "[mousedown, window:mouseup] > window:mousemove!",
+                                zoom: "wheel!",
+                                mark: {fill: "#333", fillOpacity: 0.125, stroke: "white"},
+                                resolve: "global"
+                            }
+                        },
+                        encoding: {
+                            x: {
+                                field: this.props.attr,
+                                type:  this.props.type !=="key"?this.props.type:"quantitative",
+                                axis: {labels: this.props.type === "temporal"?true:false, title: this.props.attr,format: this.props.type === "temporal"?"%Y":false},
+                                sort: this.props.type !== "quantitative" || this.props.type !== "key"|| this.props.type !== "temporal"?{op:"count",field:this.props.attr,order:"descending"}:false,
+                                bin:this.props.type === "quantitative"|| this.props.type === "key"?{maxbins:15}:false
+                            },
+                            y: {
+                                aggregate:this.props.type === "temporal"?"sum":"count", field:this.props.type === "temporal"?"sumTemp":null, type: "quantitative",
+                                axis: {tickCount: 10, title: "count", grid: false}
+                            },
+                            color: this.props.type === "temporal"?null: {field: this.props.attr, type:  this.props.type !=="key"?this.props.type:"quantitative", legend: null}
+                        },
+                        config:{
+                            legend:null
+                        }
+                    },
+                    {
+                        width: 500,
+                        mark: "bar",
+                        encoding: {
+                            column: {field: this.props.compAttr, type: this.props.typeAttr},
+                            x: {
+                                field: this.props.attr,
+                                type:  this.props.type !=="key"?this.props.type:"quantitative",
+                                scale: {domain: {selection: "brush",encoding: "x"}},
+                                axis: {title: ""},
+                                sort: this.props.type !== "quantitative" || this.props.type !== "key"||this.props.type !== "temporal"?{op:"count",field:this.props.attr,order:"descending"}:false,
+                                bin:this.props.type === "quantitative"|| this.props.type === "key"?{maxbins:15}:false
+                            },
+                            y: {aggregate:this.props.type === "temporal"?"sum":"count", field:this.props.type === "temporal"?"sumTemp":null, type: "quantitative",
+                                axis: {title: "count", grid: false},scale: {domain: {selection: "brush",encoding: "y"}},},
+                            tooltip:[
+                                {field: this.props.attr, type: this.props.type},
+                                { aggregate:this.props.type === "temporal"?"sum":"count", field:this.props.type === "temporal"?"sumTemp":null, type:"quantitative"}
+                            ],
+                            color:  this.props.type === "temporal"?null:{field: this.props.attr, type: this.props.type !=="key"?this.props.type:"quantitative", legend:null},
+                        },
+                        config:{
+                            legend:null
+                        }
+                    }
+
+                ],
+                config: {axisY: {"minExtent": 30}}
+            };
+        }
+
+
+        render(spec,()=>{
+            console.log("Finish rendering");
+        })
+       /* var ctx = document.getElementById(this.props.id).getContext('2d');
         var char = new chart(ctx,{
             type: 'horizontalBar',
             options: {
@@ -42,46 +175,11 @@ export default class Chart extends Component{
             },
             data: this.props.data
         });
-        char.render();
+        char.render();*/
     }
 
     getFGraph(){
-        var columns = [
-            ['x', this.props.data.labels[0]],
 
-        ]
-        this.props.data.datasets.forEach((d)=>{
-            var t = [d.label]
-            t.push(d.data);
-            columns.push(t);
-        })
-
-        // var cha = c3.generate({
-        //     bindto: '#chart',
-        //     data: {
-        //         x : 'x',
-        //         columns: columns,
-        //         // groups: [
-        //         //     ['download', 'loading']
-        //         // ],
-        //         type: 'bar'
-        //     },
-        //     legend: {
-        //         show: false
-        //     },
-        //     tooltip: {
-        //         grouped: false // Default true
-        //     },
-        //     zoom: {
-        //         enabled: true,
-        //         //rescale: true
-        //     },
-        //     axis: {
-        //         x: {
-        //             type: 'category' // this needed to load string x value
-        //         }
-        //     }
-        // });
         var spec = {};
         console.log(this.props.numCat,"###");
         if(this.props.numCat <50 ||((this.props.type === "quantitative"|| this.props.type === "key"))){
@@ -106,12 +204,13 @@ export default class Chart extends Component{
                     y:{aggregate: "count", type: "quantitative",
                         axis: {grid: false}},
                     x: {field: this.props.attr, type:  this.props.type !=="key"?this.props.type:"quantitative",axis: {title: this.props.attr},
-                        sort: this.props.type !== "quantitative"|| this.props.type !== "key"||this.props.type !== "temporal"?{op:"count",field:this.props.attr,order:"descending"}:false,bin:this.props.type === "quantitative"|| this.props.type === "key"?{maxbins:15}:false},
+                        sort: this.props.type !== "quantitative"|| this.props.type !== "key"||this.props.type !== "temporal"?{op:"count",field:this.props.attr,order:"descending"}:false,
+                        bin:this.props.type === "quantitative"|| this.props.type === "key"?{maxbins:15}:false},
                     tooltip:[
                         {field: this.props.attr, type: this.props.type},
                         {aggregate: "count", type:"quantitative"}
                         ],
-                    color: {field: this.props.attr, type: this.props.type !=="key"?this.props.type:"quantitative", legend:null}
+                    color: this.props.type !== "temporal"?{field: this.props.attr, type: this.props.type !=="key"?this.props.type:"quantitative", legend:null}:null
                 },
                 config:{
                     legend:null

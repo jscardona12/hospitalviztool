@@ -24,7 +24,7 @@ export default class AttributeIndex extends Component{
 
         //console.log(this.props.key);
         return(
-            <div className="col-md-12 ">
+            <div className="col-md-7 ">
                 <div>
                     {
                         !this.state.checked && this.props.disable?

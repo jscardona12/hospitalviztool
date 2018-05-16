@@ -54,6 +54,8 @@ export default class LeftSide extends Component {
             loading: false,
             pageOfItems: [],
             filter: "No",
+            compare:false,
+            compCat:"",
 
         }
         this.charts = [];
@@ -121,6 +123,19 @@ export default class LeftSide extends Component {
         });
 
     };
+    handleSelectCatComp = e => {
+        var self = this;
+            var cr = this.createRelationGraphs;
+            this.setState({charts:[],compCat : e.target.value},function(){
+                setTimeout(function()
+                {
+                    cr(self.state.attr);
+                }, 2000);
+            });
+
+    };
+    setFilter = (key)=>{
+    };
     handleSelectCat = (e)=>{
         this.setState({keyCat:e.target.value});
 
@@ -132,11 +147,13 @@ export default class LeftSide extends Component {
                     return b[1][e.target.value]- a[1][e.target.value]
                 });
 
-                console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
+               // console.log((max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100);
                 var key = {
                     name: k,
                     perc: (max[0][1][e.target.value]/this.state.cateObj[e.target.value]) * 100,
                 }
+                key.perc =  parseFloat(key.perc.toFixed(2));
+                console.log(key);
                 return key;
             }
 
@@ -147,6 +164,7 @@ export default class LeftSide extends Component {
         this.setState({keys:keys});
 
     };
+
     onChangePage = (pageOfItems)=> {
         // update state with new page of items
         this.setState({ pageOfItems: pageOfItems });
@@ -168,6 +186,7 @@ export default class LeftSide extends Component {
         console.log(data1);
         arr1 = getCategories(data1,e,this.props.attributes);
         var cat = arr1[1];
+
         /*if(this.state.filter === "No")
             cat = arr1[1];
         else if(this.state.filter === "<18")
@@ -229,13 +248,20 @@ export default class LeftSide extends Component {
         var ch =[];
         var self = this;
         var h = 0;
+        var data1 = this.props.data;
+        if(this.state.filter === "No")
+            data1 =data1;
+        else if(this.state.filter === "<18")
+            data1 = data1.filter((a)=>{return a["EDAD_PACIENTE"] <18});
+        else
+            data1 = data1.filter((a)=>{return a["EDAD_PACIENTE"] >=18});
         // this.state.catArr.forEach((cate,index)=> {
         //     h++;
             // var labels = cate.map(([k, e]) => {
             //     return k;
             // });
 
-            var cat = Object.entries(self.state.relations[key]);
+          /*  var cat = Object.entries(self.state.relations[key]);
             if(this.props.attributes[key].type !=="temporal" && this.props.attributes[key].type !=="quantitative" &&
             key !== "EDAD_PACIENTE") {
                 cat = cat.sort(function (a, b) {
@@ -254,14 +280,14 @@ export default class LeftSide extends Component {
                 cat = cat.sort(function(a,b){
                     return moment(a[0], 'MM-DD-YYYY').diff(moment(b[0], 'MM-DD-YYYY'));
                 });
-            }
+            }*/
 
 
             // cat.filter((a)=>{return a[1][self.state.keyCat]}).sort(function (a, b) {
             //     return b[1][self.state.keyCat]- a[1][self.state.keyCat];
             //
             // });
-            var ret = [cat];
+          /*  var ret = [cat];
             if (cat.length > 6) {
                 ret = [];
                 var temp = [];
@@ -284,8 +310,8 @@ export default class LeftSide extends Component {
                     }
                 })
             }
-
-            ret.forEach((r, index) => {
+*/
+           /* ret.forEach((r, index) => {
                 var i = index;
                 var data = {
                     labels: [self.state.keyCat],
@@ -310,9 +336,9 @@ export default class LeftSide extends Component {
                 //console.log(data);
                 var char = <Chart dataset={self.props.data} key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
-                });
-
-            this.setState({charts: ch, loading:false});
+                });*/
+            var char = <Chart dataset={data1} key={h + '' }id={'s' + h+ '' } labels={self.state.cats} attr={self.state.key} type={self.props.attributes[self.state.key].type} compAttr={key} typeAttr={self.props.attributes[key].type} compCat = {self.state.compCat} catKey={self.state.keyCat} first={false}/>
+            this.setState({charts: [char], loading:false});
         // });
     };
     addDataset = (data,attr,values)=>{
@@ -334,11 +360,15 @@ export default class LeftSide extends Component {
         data.datasets.push(newDataset);
     };
 
+    handleClick = ()=>{
+
+        this.setState({compare:!this.state.compare,compCat:""});
+    };
     render(){
         console.log(this.state);
         return (
             <div className="col-md-12 row">
-                <div className="col-md-4">
+                <div className="col-md-5">
                       {/*  KEY FORM CONTROL*/}
                         <div>
                             <FormControl >
@@ -362,12 +392,38 @@ export default class LeftSide extends Component {
                     <div>
                         <Filter setFilter = {this.setFilter}/>
                     </div>
+                    {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys?
+                        <div className="fix">
+                            <h6>Select an attribute to compare</h6>
+                            {
+                                this.state.keys.map((key, index) => {
+                                        if (key !== this.state.key) {
+                                           return(
+                                               <div className="row" key={index} style={{borderColor:'red'}}>
+                                                   <AttributeIndex  key={index} disable={this.state.disable} attr={key.name}
+                                                                   setAttr={this.setAttr}/>
+                                                   <div  className="col-md-5 progress">
+                                                       <div className="progress-bar" role="progressbar" style={{width:key.perc +'%'}}>
+                                                           {key.perc}%
+                                                       </div>
+                                                    </div>
+                                               </div>)
 
+                                        }
+                                    }
+                                )
+                            }
+                        </div>: <div></div>
+                    }
+
+                </div>
+                {/*RigthSide*/}
+                <div  className="col-md-7">
                     {/*CAT FORM CONTROL*/}
                     {
                         this.state.cats?
-                            <div>
-                                <FormControl >
+                            <div className="row">
+                                <FormControl className="move col-md-4" >
                                     <InputLabel htmlFor="Cat Selector">Select a category</InputLabel>
                                     <Select
                                         value={this.state.keyCat}
@@ -384,54 +440,52 @@ export default class LeftSide extends Component {
                                     </Select>
                                     <FormHelperText>Select a category to analize</FormHelperText>
                                 </FormControl>
+                                {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys?
+                                    this.state.compare?<button  type="button" className="move btn btn-primary btn-xs col-md-2" onClick={this.handleClick }>VS</button>:
+                                        <button  type="button" className="move btn btn-primary btn-xs col-md-2" onClick={this.handleClick }>Compare?</button>:
+                                    <div></div>}
+                                {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys && this.state.attr?
+                                    this.state.compare?
+                                        <FormControl className="move col-md-4" >
+                                            <InputLabel htmlFor="CatComp Selector">Select a category</InputLabel>
+                                            <Select
+                                                value={this.state.compCat}
+                                                onChange={this.handleSelectCatComp}
+                                            >
+
+                                                {
+                                                    this.state.cats.map((key,index)=> {
+                                                        return <MenuItem key = {index}value={key}>{key}</MenuItem>
+
+                                                    })
+
+                                                }
+                                            </Select>
+                                            <FormHelperText>Select a category to compare</FormHelperText>
+                                        </FormControl>: <div></div>: <div></div>}
+
                             </div>: <div></div>
                     }
-
-
-                    {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys?
-                        <div className="fix">
-                            <h6>Select an attribute to compare</h6>
-                            {
-                                this.state.keys.map((key, index) => {
-                                        if (key !== this.state.key) {
-                                           return(
-                                               <div key={index} style={{borderColor:'red'}}>
-                                                   <AttributeIndex key={index} disable={this.state.disable} attr={key.name}
-                                                                   setAttr={this.setAttr}/>
-                                                   <div  className="progress">
-                                                       <div className="progress-bar" role="progressbar" style={{width:key.perc +'%'}}>
-                                                           {key.perc}%
-                                                       </div>
-                                                    </div>
-                                               </div>)
-
-                                        }
+                    {
+                        this.state.loading?
+                            <div className="center">
+                                <Spin size="large" tip="Analizing data..."/>
+                            </div>:
+                            <div className="col-md-7">
+                                <div className="col-md-12">
+                                    <Pagination items = {this.state.charts} initialPage={1} onChangePage={this.onChangePage}/>
+                                </div>
+                                <div className="col-md-12 row ">
+                                    {
+                                        this.state.pageOfItems !== []? this.state.pageOfItems: <div> <h3>No Hay Datos</h3></div>
                                     }
-                                )
-                            }
-                        </div>: <div></div>
+
+                                </div>
+                            </div>
+
                     }
-
                 </div>
-                {/*RigthSide*/}
-                {
-                    this.state.loading?
-                        <div className="center">
-                            <Spin size="large" tip="Analizing data..."/>
-                        </div>:
-                        <div className="col-md-8">
-                            <div className="col-md-12">
-                                <Pagination items = {this.state.charts} initialPage={1} onChangePage={this.onChangePage}/>
-                            </div>
-                            <div className="col-md-12 row ">
-                                {
-                                    this.state.pageOfItems !== []? this.state.pageOfItems: <div> <h3>No Hay Datos</h3></div>
-                                }
 
-                            </div>
-                        </div>
-
-                }
 
             </div>
 
