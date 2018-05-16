@@ -71,7 +71,7 @@ export default class LeftSide extends Component {
         var self = this;
         if(key){
             var cr = this.createRelationGraphs;
-            this.setState({attr:key,disable:true,charts:[]},function(){
+            this.setState({attr:key,compCat:"",disable:true,charts:[]},function(){
                 setTimeout(function()
                 {
                     cr(key);
@@ -80,7 +80,7 @@ export default class LeftSide extends Component {
 
         }
         else
-            this.setState({attr:key,disable:false,charts:[]},function(){
+            this.setState({attr:key,compCat:"",disable:false,charts:[]},function(){
                 setTimeout(function()
                 {
                     console.log("deselect");
@@ -115,7 +115,7 @@ export default class LeftSide extends Component {
 
         var cr = this.createKeyChart;
         var self = this;
-        this.setState({charts:[],disable:false,loading:true,keys:null,cats:null,key:e.target.value,pageOfItems:[]},function() {
+        this.setState({charts:[],compCat:"",disable:false,loading:true,keys:null,cats:null,key:e.target.value,pageOfItems:[]},function() {
             setTimeout(function()
             {
                 cr(e.target.value);
@@ -138,7 +138,7 @@ export default class LeftSide extends Component {
     };
     handleSelectCat = (e)=>{
         this.setState({keyCat:e.target.value});
-
+        this.setAttr(null);
         var keys = this.props.keys.map(k =>{
             if(k !== this.state.key) {
 
@@ -261,7 +261,9 @@ export default class LeftSide extends Component {
             //     return k;
             // });
 
-          /*  var cat = Object.entries(self.state.relations[key]);
+            var cat = Object.entries(self.state.relations[key]);
+            console.log(cat);
+/*
             if(this.props.attributes[key].type !=="temporal" && this.props.attributes[key].type !=="quantitative" &&
             key !== "EDAD_PACIENTE") {
                 cat = cat.sort(function (a, b) {
@@ -280,7 +282,8 @@ export default class LeftSide extends Component {
                 cat = cat.sort(function(a,b){
                     return moment(a[0], 'MM-DD-YYYY').diff(moment(b[0], 'MM-DD-YYYY'));
                 });
-            }*/
+            }
+*/
 
 
             // cat.filter((a)=>{return a[1][self.state.keyCat]}).sort(function (a, b) {
@@ -337,7 +340,10 @@ export default class LeftSide extends Component {
                 var char = <Chart dataset={self.props.data} key={h + '' + i}id={'s' + h+ '' + i} labels={self.state.cats} attr={self.state.key} first={false} data={data}/>
                 ch.push(char);
                 });*/
-            var char = <Chart dataset={data1} key={h + '' }id={'s' + h+ '' } labels={self.state.cats} attr={self.state.key} type={self.props.attributes[self.state.key].type} compAttr={key} typeAttr={self.props.attributes[key].type} compCat = {self.state.compCat} catKey={self.state.keyCat} first={false}/>
+           var order = "descending";
+           if(self.state.keyCat < self.state.compCat)
+               order = "ascending"
+            var char = <Chart dataset={data1} key={h + '' }id={'s' + h+ '' } labels={self.state.cats} order={order} numCat={cat.length} attr={self.state.key} type={self.props.attributes[self.state.key].type} compAttr={key} typeAttr={self.props.attributes[key].type} compCat = {self.state.compCat} catKey={self.state.keyCat} first={false}/>
             this.setState({charts: [char], loading:false});
         // });
     };
