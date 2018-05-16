@@ -125,13 +125,13 @@ export default class LeftSide extends Component {
     };
     handleSelectCatComp = e => {
         var self = this;
-            var cr = this.createRelationGraphs;
-            this.setState({charts:[],compCat : e.target.value},function(){
-                setTimeout(function()
-                {
-                    cr(self.state.attr);
-                }, 2000);
-            });
+        var cr = this.createRelationGraphs;
+        this.setState({charts:[],compCat : e.target.value},function(){
+            setTimeout(function()
+            {
+                cr(self.state.attr);
+            }, 2000);
+        });
 
     };
     setFilter = (key)=>{
@@ -367,8 +367,21 @@ export default class LeftSide extends Component {
     };
 
     handleClick = ()=>{
+        var comp = this.state.compare;
 
-        this.setState({compare:!this.state.compare,compCat:""});
+        if(comp){
+            var self = this;
+            var cr = this.createRelationGraphs;
+            this.setState({charts:[],compare:!this.state.compare,compCat:""},function(){
+                setTimeout(function()
+                {
+                    cr(self.state.attr);
+                }, 2000);
+            });
+
+        }
+        else
+            this.setState({compare:!this.state.compare,compCat:""});
     };
     render(){
         console.log(this.state);
