@@ -56,6 +56,7 @@ export default class LeftSide extends Component {
             filter: "No",
             compare:false,
             compCat:"",
+            unchecked:false,
 
         }
         this.charts = [];
@@ -80,7 +81,7 @@ export default class LeftSide extends Component {
 
         }
         else
-            this.setState({attr:key,compCat:"",disable:false,charts:[]},function(){
+            this.setState({unchecked:true,attr:key,compCat:"",disable:false,charts:[]},function(){
                 setTimeout(function()
                 {
                     console.log("deselect");
@@ -417,7 +418,7 @@ export default class LeftSide extends Component {
                                         if (key !== this.state.key) {
                                            return(
                                                <div className="row" key={index} style={{borderColor:'red'}}>
-                                                   <AttributeIndex  key={index} disable={this.state.disable} attr={key.name}
+                                                   <AttributeIndex  unchecked={this.state.unchecked} key={index} disable={this.state.disable} attr={key.name}
                                                                    setAttr={this.setAttr}/>
                                                    <div  className="col-md-5 progress">
                                                        <div className="progress-bar" role="progressbar" style={{width:key.perc +'%'}}>
@@ -457,7 +458,7 @@ export default class LeftSide extends Component {
                                     </Select>
                                     <FormHelperText>Select a category to analize</FormHelperText>
                                 </FormControl>
-                                {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys?
+                                {this.state.key !=="" && this.state.keyCat !=="" && this.state.keys && this.state.attr?
                                     this.state.compare?<button  type="button" className="move btn btn-primary btn-xs col-md-2" onClick={this.handleClick }>VS</button>:
                                         <button  type="button" className="move btn btn-primary btn-xs col-md-2" onClick={this.handleClick }>Compare?</button>:
                                     <div></div>}

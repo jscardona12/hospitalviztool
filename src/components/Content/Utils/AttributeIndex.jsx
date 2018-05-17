@@ -10,6 +10,9 @@ export default class AttributeIndex extends Component{
 
 
         }
+        if(this.props.unchecked){
+            this.setState({checked:false});
+        }
     }
     handleChange = name => event => {
         this.setState({ [name]: event.target.checked });

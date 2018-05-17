@@ -89,7 +89,7 @@ class Load extends Component {
                                 if (diff <= periodo) {
                                     // console.log(diff);
                                     count++;
-                                    touple[nombre] = 1;
+                                    touple[nombre] = "Yes";
                                     var feini = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss')
                                     var fefin = null;
                                     if (touple[fdate])
@@ -103,7 +103,7 @@ class Load extends Component {
                                     };
                                 }
                                 else {
-                                    touple[nombre] = 0;
+                                    touple[nombre] = "No";
                                     var feini = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss')
                                     var fefin = null;
                                     if (touple[fdate])
@@ -118,7 +118,7 @@ class Load extends Component {
                                 }
                             }
                             else {
-                                touple[nombre] = 0;
+                                touple[nombre] = "No";
                             }
                         }
                         else {
@@ -133,11 +133,11 @@ class Load extends Component {
                                 fefin,
                                 "key": touple[id],
                             };
-                            touple[nombre] = 0;
+                            touple[nombre] = "No";
                         }
                     }
                     else{
-                        touple[nombre] = 0;
+                        touple[nombre] = "No";
                     }
 
                 });
