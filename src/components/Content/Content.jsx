@@ -24,7 +24,7 @@ class Content extends Component {
             <div >
                 { !this.props.loaded?
                     <div className="load">
-                        {!this.props.loading ?
+                        {!this.props.loading?
                             <Load
                                 setLoading={this.props.setLoading}
                                 loading={this.props.loading}

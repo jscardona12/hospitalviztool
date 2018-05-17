@@ -134,8 +134,6 @@ export default class LeftSide extends Component {
         });
 
     };
-    setFilter = (key)=>{
-    };
     handleSelectCat = (e)=>{
         this.setState({keyCat:e.target.value});
         this.setAttr(null);

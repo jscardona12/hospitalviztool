@@ -4,11 +4,15 @@ import * as vega from 'vega';
 import * as d3 from "d3";
 import './load.css';
 import moment from 'moment';
+import Schema from "../../js/schema";
+import TimeEventMaker from "../TimeEventMaker";
+import { Spin } from 'antd';
 
 const Dragger = Upload.Dragger;
 class Load extends Component {
     state = {
         confirmLoading: false,
+        loading:false,
     }
     showModal = () => {
         this.setState({
@@ -16,6 +20,10 @@ class Load extends Component {
         });
     }
 
+    getAttributesType(data,atts){
+        this.schema = new Schema(data);
+        this.schema.setAttr(atts);
+    }
 
     handleFile(file){
         console.log('handleFile')
@@ -32,85 +40,19 @@ class Load extends Component {
                 console.log('try')
                 if(format === "txt") throw true
                 values = vega.read(lEvent.target.result, {type: format});
-                var rehosp = {};
-                var count = 0;
-                values.forEach((touple)=>{
-
-                    if(touple["TIPO_INGRESO"] === "HOSPITALARIO") {
-                        if (rehosp[touple["id"]]) {
-                            // console.log("EXISTS")
-                            var feini = rehosp[touple["id"]]["FECHA_DE_INGRESO"];
-                            if (feini !== touple["FECHA_DE_INGRESO"]) {
-                                //   console.log("DIFF")
-                                // console.log(rehosp[touple["id"]]);
-                                var feinicio = moment(touple["FECHA_DE_INGRESO"], 'MM-DD-YYYY HH:mm:ss');
-                                var diff = feinicio.diff(rehosp[touple["id"]].fefin, "days");
-
-                                if (diff <= 30) {
-                                    // console.log(diff);
-                                    count++;
-                                    touple["RE-HOSPITALIZACION"] = 1;
-                                    var feini = moment(touple["FECHA_DE_INGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                                    var fefin = null;
-                                    if (touple["FECHA_EGRESO"])
-                                        fefin = moment(touple["FECHA_EGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                                    rehosp[touple["id"]] = {
-                                        "FECHA_DE_INGRESO": touple["FECHA_DE_INGRESO"],
-                                        "FECHA_EGRESO": touple["FECHA_EGRESO"],
-                                        feini,
-                                        fefin,
-                                        "key": touple["id"],
-                                    };
-                                }
-                                else {
-                                    touple["RE-HOSPITALIZACION"] = 0;
-                                    var feini = moment(touple["FECHA_DE_INGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                                    var fefin = null;
-                                    if (touple["FECHA_EGRESO"])
-                                        fefin = moment(touple["FECHA_EGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                                    rehosp[touple["id"]] = {
-                                        "FECHA_DE_INGRESO": touple["FECHA_DE_INGRESO"],
-                                        "FECHA_EGRESO": touple["FECHA_EGRESO"],
-                                        feini,
-                                        fefin,
-                                        "key": touple["id"],
-                                    };
-                                }
-                            }
-                            else {
-                                touple["RE-HOSPITALIZACION"] = 0;
-                            }
-                        }
-                        else {
-                            var feini = moment(touple["FECHA_DE_INGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                            var fefin = null;
-                            if (touple["FECHA_EGRESO"])
-                                fefin = moment(touple["FECHA_EGRESO"], 'MM-DD-YYYY HH:mm:ss')
-                            rehosp[touple["id"]] = {
-                                "FECHA_DE_INGRESO": touple["FECHA_DE_INGRESO"],
-                                "FECHA_EGRESO": touple["FECHA_EGRESO"],
-                                feini,
-                                fefin,
-                                "key": touple["id"],
-                            };
-                            touple["RE-HOSPITALIZACION"] = 0;
-                        }
-                    }
-                    else{
-                        touple["RE-HOSPITALIZACION"] = 0;
-                    }
-
-                });
-
+                let atts = [];
+                for (let prop in values[0]){
+                    let i = {};
+                    i.name = prop;
+                    i.type = "";
+                    atts[i.name]=i;
+                }
+                this.getAttributesType(values,atts);
+                console.log(atts);
+                this.setState({keys:atts,values:values, show:true});
                 //console.log(count);
                 //console.log('try2');
-                values = this.setBinDate(values,"FECHA_DE_INGRESO");
-                values = this.setBinDate(values,"FECHA_EGRESO");
-               // values = this.setBinDate(values,"FECHA_NACIMIENTO");
-               // values = this.setBinAges(values,"EDAD_PACIENTE");
-                console.log(values);
-                this.props.setData(values);
-                this.setState({loading:false})
+
             } catch (err) {
                 console.log(err);
                 console.log('err')
@@ -124,6 +66,92 @@ class Load extends Component {
         };
 
         reader.readAsText(file);
+    }
+
+    calculateTimeEvent = (values,id,sdate,fdate,periodo,nombre)=>{
+        var self = this;
+        this.setState({loading:true},function() {
+            setTimeout(function()
+            {
+                var rehosp = {};
+                var count = 0;
+                values.forEach((touple)=>{
+                    if(true) {
+                        if (rehosp[touple[id]]) {
+                            // console.log("EXISTS")
+                            var feini = rehosp[touple[id]][sdate];
+                            if (feini !== touple[sdate]) {
+                                //   console.log("DIFF")
+                                // console.log(rehosp[touple[id]]);
+                                var feinicio = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss');
+                                var diff = feinicio.diff(rehosp[touple[id]].fefin, "days");
+
+                                if (diff <= periodo) {
+                                    // console.log(diff);
+                                    count++;
+                                    touple[nombre] = 1;
+                                    var feini = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss')
+                                    var fefin = null;
+                                    if (touple[fdate])
+                                        fefin = moment(touple[fdate], 'MM-DD-YYYY HH:mm:ss')
+                                    rehosp[touple[id]] = {
+                                        sdate: touple[sdate],
+                                        fdate: touple[fdate],
+                                        feini,
+                                        fefin,
+                                        "key": touple[id],
+                                    };
+                                }
+                                else {
+                                    touple[nombre] = 0;
+                                    var feini = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss')
+                                    var fefin = null;
+                                    if (touple[fdate])
+                                        fefin = moment(touple[fdate], 'MM-DD-YYYY HH:mm:ss')
+                                    rehosp[touple[id]] = {
+                                        sdate: touple[sdate],
+                                        fdate: touple[fdate],
+                                        feini,
+                                        fefin,
+                                        "key": touple[id],
+                                    };
+                                }
+                            }
+                            else {
+                                touple[nombre] = 0;
+                            }
+                        }
+                        else {
+                            var feini = moment(touple[sdate], 'MM-DD-YYYY HH:mm:ss')
+                            var fefin = null;
+                            if (touple[fdate])
+                                fefin = moment(touple[fdate], 'MM-DD-YYYY HH:mm:ss')
+                            rehosp[touple[id]] = {
+                                sdate: touple[sdate],
+                                fdate: touple[fdate],
+                                feini,
+                                fefin,
+                                "key": touple[id],
+                            };
+                            touple[nombre] = 0;
+                        }
+                    }
+                    else{
+                        touple[nombre] = 0;
+                    }
+
+                });
+                values = self.setBinDate(values,sdate);
+                values = self.setBinDate(values,fdate);
+                // values = this.setBinDate(values,"FECHA_NACIMIENTO");
+                // values = this.setBinAges(values,"EDAD_PACIENTE");
+                console.log(values);
+                self.props.setData(values);
+                self.setState({loading:false})
+
+            }, 1000);
+        });
+
     }
     setBinAges = (data,attr) =>{
         var catArr =[];
@@ -219,7 +247,7 @@ class Load extends Component {
 
     };
     beforeUpload = (e) => {
-        this.props.setLoading(true);
+        //this.props.setLoading(true);
         this.handleFile(e);
         return false;
     }
@@ -229,8 +257,9 @@ class Load extends Component {
             <div>
                 <div className="dragger">
                     <div>
-                        {!this.props.loading?
+                        {!this.state.loading?!this.state.show?
                             <div>
+                                <h3>DCP allows you to understand the behavior of a variable, find relations between variables and make comparisons to understand the properties of an specific relation.</h3>
                                 <Dragger accept=".csv,.tsv,.txt" beforeUpload={this.beforeUpload} name={'file'} multiple={false} onChange={this.onChange}>
                                     <p className="ant-upload-drag-icon">
                                         <Icon type="upload" />
@@ -240,10 +269,10 @@ class Load extends Component {
                                     {this.state.loading?"loading":''}
                                 </Dragger>
                             </div>
-                            :
-                            <div>
-                                <Icon type="loading" />
-                            </div>
+                            : <TimeEventMaker setData={this.props.setData} calculateTimeEvent={this.calculateTimeEvent} values={this.state.values}  keys ={Object.values(this.state.keys)}/>: <div className="center">
+                            <Spin size="large" tip="Creating time event..."/>
+                        </div>
+
                         }
 
 

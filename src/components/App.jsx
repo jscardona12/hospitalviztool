@@ -6,13 +6,14 @@ import Content from './Content/Content.jsx';
 import Schema from './js/schema';
 import LeftSide from "./Content/LeftSide";
 import $ from "jquery";
+import TimeEventMaker from "./Content/TimeEventMaker";
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
             data:null,
-            loaded: true,
+            loaded: false,
             showModal: false,
             attributes: [],
             ids: [],
@@ -24,7 +25,7 @@ class App extends Component {
         this.schema = null;
         this.data = null;
         var self = this;
-        $.getJSON("./datos1.json",function( d ) {
+       /* $.getJSON("./datos1.json",function( d ) {
             let atts = [];
             for (let prop in d[0]){
                 let i = {};
@@ -39,7 +40,7 @@ class App extends Component {
             self.setState({data: d,attributes:atts}) ;
 
             console.log("done");
-        });
+        });*/
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -117,10 +118,9 @@ class App extends Component {
                 <div className="container">
                     <div className="header">
                         {/*<div className="logo"> <Icon type="compass" /> </div>*/}
-                        <div> <h1>JSToolHM</h1></div>
+                        <div><img src="/logo2.png" alt="logo"/></div>
                     </div>
-
-                    {data && this.state.loaded?
+                    {this.state.loaded?
                         <div className="col-md-12 row">
                             <LeftSide data={data}
                                       attributes={this.state.attributes}
