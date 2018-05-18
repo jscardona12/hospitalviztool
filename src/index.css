@@ -5,7 +5,6 @@ body {
 }
 a { cursor: pointer; }
 .fix{
-  width : 15vw;
   height : 60vh;
   overflow-x: auto;
   overflow-y: auto;
