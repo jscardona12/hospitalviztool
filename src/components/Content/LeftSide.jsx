@@ -385,8 +385,8 @@ export default class LeftSide extends Component {
     render(){
         console.log(this.state);
         return (
-            <div className="col-md-12 row">
-                <div className="col-md-5">
+            <div className="col-md-11 row">
+                <div className="col-md-3">
                       {/*  KEY FORM CONTROL*/}
                         <div>
                             <FormControl >
@@ -436,7 +436,7 @@ export default class LeftSide extends Component {
 
                 </div>
                 {/*RigthSide*/}
-                <div  className="col-md-7">
+                <div  className="col-md-9">
                     {/*CAT FORM CONTROL*/}
                     {
                         this.state.cats?
@@ -486,7 +486,7 @@ export default class LeftSide extends Component {
                     }
                     {
                         this.state.loading?
-                            <div className="center">
+                            <div className="centerThis">
                                 <Spin size="large" tip="Analizing data..."/>
                             </div>:
                             <div className="col-md-7">

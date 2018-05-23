@@ -40,7 +40,7 @@ export default class TimeEventMaker extends Component{
     render(){
         return(
             <div>
-                <h3> A time event is an event that passes between a <span style={{color: "red"}}>start date</span> and a <span style={{color: "blue"}}>end date</span> , within a <span style={{color: "purple"}}>period </span>of time(days) for a same <span style={{color: "green"}}>identificator </span> . </h3>
+                <h3> A time event is an event that passes between a <span style={{color: "red"}}>start date</span> and a <span style={{color: "blue"}}>end date</span> , within a <span style={{color: "purple"}}>period </span>of time(days) for a same <span style={{color: "green"}}>identifier </span> . </h3>
                 <img width={800} src="/tevent.png" alt="Description for time event"/>
                 <div className="row" style={{marginTop:"20px"}}>
                     <FormControl className="col-md-2">

@@ -115,13 +115,15 @@ class App extends Component {
         return (
             <div>
 
-                <div className="container">
+                <div className="row">
+                    <div className="col-md-1"></div>
                     <div className="header">
                         {/*<div className="logo"> <Icon type="compass" /> </div>*/}
                         <div><img src="/logo2.png" alt="logo"/></div>
                     </div>
                     {this.state.loaded?
                         <div className="col-md-12 row">
+                            <div className="col-md-1"></div>
                             <LeftSide data={data}
                                       attributes={this.state.attributes}
                                       keys={Object.keys(data[0])}/>

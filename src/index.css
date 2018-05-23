@@ -10,6 +10,9 @@ a { cursor: pointer; }
   overflow-y: auto;
   margin-top: 5vh;
 }
+.load{
+  margin-left: 5vw;
+}
 .progress{
   margin-top: 17px;
 }
@@ -22,21 +25,25 @@ a { cursor: pointer; }
   overflow-y: auto;
   margin-top: 5vh;
 }
-canvas {
-  border: 1px dotted red;
-}
 
-.chart-container {
+
+#view {
   position: relative;
   margin: auto;
-  height: 60vh;
-  width: 40vw;
+  width: 50vw;
 }
 .center{
   position: relative;
   float: left;
-  top: 50%;
-  left: 50%;
+  top: 30vh;
+  left: 40vw;
+  transform: translate(-50%, -50%);
+}
+.centerThis{
+  position: relative;
+  float: left;
+  top: 30vh;
+  left: 15vw;
   transform: translate(-50%, -50%);
 }
 

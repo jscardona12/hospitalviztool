@@ -21,7 +21,7 @@ class Content extends Component {
     }
     render(){
         return(
-            <div >
+            <div className="col-md-11 row container">
                 { !this.props.loaded?
                     <div className="load">
                         {!this.props.loading?
