@@ -35,11 +35,12 @@ export default class TimeEventMaker extends Component{
         this.props.calculateTimeEvent(this.props.values,this.state.id,this.state.f1,this.state.f2,this.state.periodo,this.state.nombre);
     };
     handleClickNo = ()=>{
-        this.props.setDate(this.props.values);
+        this.props.setData(this.props.values);
     };
     render(){
         return(
             <div>
+                <button onClick={()=>{this.handleClickNo()}}>SKIP</button>
                 <h3> A time event is an event that passes between a <span style={{color: "red"}}>start date</span> and a <span style={{color: "blue"}}>end date</span> , within a <span style={{color: "purple"}}>period </span>of time(days) for a same <span style={{color: "green"}}>identifier </span> . </h3>
                 <img width={800} src="/tevent.png" alt="Description for time event"/>
                 <div className="row" style={{marginTop:"20px"}}>
