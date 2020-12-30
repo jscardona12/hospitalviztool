@@ -17,7 +17,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
-    "vega": "^4.0.0-rc.1",
+    "vega": "^5.17.3",
     "vega-embed": "^3.9.0",
     "vega-lite": "^2.4.3",
     "vega-tooltip": "^0.9.16"
